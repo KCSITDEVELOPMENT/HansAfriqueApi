@@ -1,0 +1,6 @@
+\\10.10.0.251\Dev\1\Desktop\HansAfriqueApi\HansAfriqueApi\obj\Debug\netcoreapp3.1\HansAfriqueApi.csproj.AssemblyReference.cache
+\\10.10.0.251\Dev\1\Desktop\HansAfriqueApi\HansAfriqueApi\obj\Debug\netcoreapp3.1\HansAfriqueApi.GeneratedMSBuildEditorConfig.editorconfig
+\\10.10.0.251\Dev\1\Desktop\HansAfriqueApi\HansAfriqueApi\obj\Debug\netcoreapp3.1\HansAfriqueApi.AssemblyInfoInputs.cache
+\\10.10.0.251\Dev\1\Desktop\HansAfriqueApi\HansAfriqueApi\obj\Debug\netcoreapp3.1\HansAfriqueApi.AssemblyInfo.cs
+\\10.10.0.251\Dev\1\Desktop\HansAfriqueApi\HansAfriqueApi\obj\Debug\netcoreapp3.1\HansAfriqueApi.csproj.CoreCompileInputs.cache
+\\10.10.0.251\Dev\1\Desktop\HansAfriqueApi\HansAfriqueApi\obj\Debug\netcoreapp3.1\HansAfriqueApi.MvcApplicationPartsAssemblyInfo.cache

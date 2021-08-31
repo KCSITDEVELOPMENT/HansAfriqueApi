@@ -1,0 +1,92 @@
+﻿using HansAfriqueApi.Data;
+using HansAfriqueApi.Dto;
+using HansAfriqueApi.Entities;
+using HansAfriqueApi.Interface;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using static HansAfriqueApi.Controllers.BaseController;
+
+namespace HansAfriqueApi.Controllers
+{
+    public class AccountController : BaseApiController
+    {
+            private readonly ITokenService _tokenservice;
+            private readonly DataContext _context;
+            private readonly IAuthRepository _repo;
+            private readonly IConfiguration _config;
+
+            public AccountController(DataContext context, IAuthRepository repo, IConfiguration config, ITokenService tokenservice)
+            {
+                _tokenservice = tokenservice;
+                _context = context;
+                _repo = repo;
+                _config = config;
+            }
+
+
+            [HttpPost("register")]
+            public async Task<ActionResult<UserDto>> Register(UserRegisterDto userRegisterDto)
+            {
+            
+            using var hmac = new HMACSHA512();
+
+                //Validate request
+                userRegisterDto.Username = userRegisterDto.Username.ToLower();
+
+                if (await _repo.UserExist(userRegisterDto.Username))
+                    return BadRequest("User Already Exist");
+
+                var userToCreate = new Person
+                {
+                    Username = userRegisterDto.Username,
+                    PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(userRegisterDto.Password)),
+                    PasswordSalt = hmac.Key
+                };
+
+            //var createdUser = await _repo.Register(userToCreate, userRegisterDto.Password);
+
+              _context.People.Add(userToCreate);
+
+                return new UserDto
+                {
+                Username = userToCreate.Username,
+                Token = _tokenservice.CreateToken(userToCreate)
+                };
+            }
+
+            [HttpPost("login")]
+            public async Task<ActionResult<UserDto>> Login(UserLoginDto userLoginDto)
+            {
+             
+             var user = await _context.People.SingleOrDefaultAsync(x => x.Username == userLoginDto.Username);
+
+            if (user == null) return Unauthorized("Invalid Username");
+
+            using var hmac = new HMACSHA512(user.PasswordSalt);
+
+            var computeHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(userLoginDto.Password));
+
+              for (int i = 0; i < computeHash.Length; ++i) 
+               {
+                if (computeHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid Password");
+               }
+
+            return new UserDto
+            {
+                Username = user.Username,
+                Token = _tokenservice.CreateToken(user)
+            };
+        }
+        
+    }
+}
