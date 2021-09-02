@@ -18,7 +18,9 @@ using static HansAfriqueApi.Controllers.BaseController;
 
 namespace HansAfriqueApi.Controllers
 {
-    public class AccountController : BaseApiController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AccountController : ControllerBase
     {
             private readonly ITokenService _tokenservice;
             private readonly DataContext _context;
@@ -34,37 +36,35 @@ namespace HansAfriqueApi.Controllers
             }
 
 
-            [HttpPost("register")]
-            public async Task<ActionResult<UserDto>> Register(UserRegisterDto userRegisterDto)
-            {
-            
+        [HttpPost("register")]
+        public async Task<ActionResult<UserDto>> Register(UserRegisterDto userRegisterDto)
+        {
+            //Validate request
+            userRegisterDto.Username = userRegisterDto.Username.ToLower();
+
+            if (await _repo.UserExist(userRegisterDto.Username))
+                return BadRequest("User Already Exist");
+
             using var hmac = new HMACSHA512();
 
-                //Validate request
-                userRegisterDto.Username = userRegisterDto.Username.ToLower();
+            var userToCreate = new Person
+            {
+                Username = userRegisterDto.Username.ToLower(),
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(userRegisterDto.Password)),
+                PasswordSalt = hmac.Key
+            };
 
-                if (await _repo.UserExist(userRegisterDto.Username))
-                    return BadRequest("User Already Exist");
+            _context.People.Add(userToCreate);
+            await _context.SaveChangesAsync();
 
-                var userToCreate = new Person
-                {
-                    Username = userRegisterDto.Username,
-                    PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(userRegisterDto.Password)),
-                    PasswordSalt = hmac.Key
-                };
-
-            //var createdUser = await _repo.Register(userToCreate, userRegisterDto.Password);
-
-              _context.People.Add(userToCreate);
-
-                return new UserDto
-                {
+            return new UserDto
+            {
                 Username = userToCreate.Username,
                 Token = _tokenservice.CreateToken(userToCreate)
-                };
-            }
+            };
+        }
 
-            [HttpPost("login")]
+        [HttpPost("login")]
             public async Task<ActionResult<UserDto>> Login(UserLoginDto userLoginDto)
             {
              

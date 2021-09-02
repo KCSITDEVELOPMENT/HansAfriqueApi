@@ -1,4 +1,5 @@
-﻿using HansAfriqueApi.Data;
+﻿using AutoMapper;
+using HansAfriqueApi.Data;
 using HansAfriqueApi.Dto;
 using HansAfriqueApi.Entities;
 using HansAfriqueApi.Interface;
@@ -10,6 +11,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,37 +25,41 @@ namespace HansAfriqueApi.Controllers
         private readonly ITokenService _tokenservice;
         private readonly DataContext _context;
         private readonly IConfiguration _config;
+        private readonly IMapper _mapper;
 
-        public AuthController(DataContext context, IAuthRepository repo, IConfiguration config, ITokenService tokenservice) 
+        public AuthController(DataContext context, IAuthRepository repo, IConfiguration config, ITokenService tokenservice, IMapper mapper) 
         {
             _repo = repo;
             _tokenservice = tokenservice;
             _context = context;
             _config = config;
+            _mapper = mapper;
         }
 
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserRegisterDto userRegisterDto)
+        public async Task<IActionResult> Register(UserRegisterDto userForRegisterDto)
         {
-            userRegisterDto.Username = userRegisterDto.Username.ToLower();
+            // validate request
 
-            if (await _repo.UserExist(userRegisterDto.Username))
-                return BadRequest("User Already Exist");
+            userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
-            var userToCreate = new Person
-            {
-                Username = userRegisterDto.Username
-            
-            };
+            if (await _repo.UserExist(userForRegisterDto.Username))
+                return BadRequest("Username already exists");
 
-            var createdUser = await _repo.Register(userToCreate, userRegisterDto.Password);
-            return StatusCode(201);
+
+            var userToCreate = _mapper.Map<Person>(userForRegisterDto);
+
+            var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
+
+            var userToReturn = _mapper.Map<UserForDetailedDto>(createdUser);
+
+            return CreatedAtRoute("GetUser", new { controller = "Users", id = createdUser.Id }, userToReturn);
         }
 
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserLoginDto userLoginDto)
+        public async Task<ActionResult> Login(UserLoginDto userLoginDto)
         {
             var userFromRepo = await _repo.Login(userLoginDto.Username.ToLower(), userLoginDto.Password);
             if (userFromRepo == null)
