@@ -34,9 +34,9 @@ namespace HansAfriqueApi.Repositories
             return await _context.ProductBrands.ToListAsync();
         }
 
-        public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
+        public async Task<IReadOnlyList<Vehicle>> GetProductTypesAsync()
         {
-            return await _context.ProductTypes.ToListAsync();
+            return await _context.Vehicles.ToListAsync();
         }
     }
 }

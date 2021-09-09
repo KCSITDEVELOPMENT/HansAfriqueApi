@@ -43,7 +43,7 @@ namespace HansAfriqueApi.Controllers
         }
 
         [HttpGet("types")]
-        public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
+        public async Task<ActionResult<IReadOnlyList<Vehicle>>> GetProductTypes()
         {
             return Ok(await _repo.GetProductsBrandsAsync());
         }

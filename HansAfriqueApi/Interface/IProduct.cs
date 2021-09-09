@@ -11,6 +11,6 @@ namespace HansAfriqueApi.Interface
         Task<Product> GetProductByIdAsync(int id);
         Task<IReadOnlyList<Product>> GetProductsAsync();
         Task<IReadOnlyList<ProductBrand>> GetProductsBrandsAsync();
-        Task<IReadOnlyList<ProductType>> GetProductTypesAsync();
+        Task<IReadOnlyList<Vehicle>> GetProductTypesAsync();
     }
 }
