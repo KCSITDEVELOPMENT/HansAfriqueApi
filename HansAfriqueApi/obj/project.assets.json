@@ -5457,11 +5457,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
+      "projectUniqueName": "\\\\10.10.0.251\\Dev\\1\\Documents\\Work\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
       "projectName": "HansAfriqueApi",
-      "projectPath": "D:\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
+      "projectPath": "\\\\10.10.0.251\\Dev\\1\\Documents\\Work\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
       "packagesPath": "C:\\Users\\DEV1\\.nuget\\packages\\",
-      "outputPath": "D:\\HansAfriqueApi\\HansAfriqueApi\\obj\\",
+      "outputPath": "\\\\10.10.0.251\\Dev\\1\\Documents\\Work\\HansAfriqueApi\\HansAfriqueApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace HansAfriqueApi.Entities
+{
+    public class Vehicle : BaseEntity
+    {
+        public string Name { get; set; }
+        public string Vehicle_Model { get; set; }
+        public string Vehicle_Category { get; set; }
+    }
+}
