@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AccountService } from '../services/account.service';
 
 @Component({
@@ -9,13 +10,14 @@ import { AccountService } from '../services/account.service';
 export class RegisterComponent implements OnInit {
  model: any = {};
 
-  constructor( private accountService: AccountService) { }
+  constructor( private accountService: AccountService,  private router: Router ) { }
 
   ngOnInit(): void {
   }
 
   register(){
     this.accountService.register(this.model).subscribe(response => {
+      this.router.navigateByUrl('/products');
       console.log(response);
      }, error => {
        console.log(error);
