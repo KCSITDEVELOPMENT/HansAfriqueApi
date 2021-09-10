@@ -7,7 +7,6 @@ namespace HansAfriqueApi.Entities
 {
     public class Part: BaseEntity
     {
-        public string Part_Category { get; set; }
-        public string Part_Description { get; set; }
+        public string Name { get; set; }
     }
 }
