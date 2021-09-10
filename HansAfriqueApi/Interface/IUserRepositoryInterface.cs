@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace HansAfriqueApi.Interface
 {
-    public interface IUserRepository
+    public interface IUserRepositoryInterface
     {
         void Update(Person person);
         Task<bool> SaveAllAsync();
         Task<IEnumerable<Person>> GetUsersAsync();
-        Task<Person> GetUserByIdAsync( int id);
-        Task <Person> GetUsersByUsernameAsync( string username);
+        Task<Person> GetUserByIdAsync(int id);
+        Task<Person> GetUsersByUsernameAsync(string username);
     }
 }

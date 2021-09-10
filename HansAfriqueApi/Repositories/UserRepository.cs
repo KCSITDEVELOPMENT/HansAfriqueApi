@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 
 namespace HansAfriqueApi.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : IUserRepositoryInterface
     {
         private readonly DataContext _context;
 
-        public UserRepository( DataContext context) 
+        public UserRepository(DataContext context)
         {
             _context = context;
         }
-
 
 
         public async Task<Person> GetUserByIdAsync(int id)
@@ -32,7 +31,7 @@ namespace HansAfriqueApi.Repositories
 
         public async Task<Person> GetUsersByUsernameAsync(string username)
         {
-            return await _context.People.SingleOrDefaultAsync( x => x.Username == username);
+            return await _context.People.SingleOrDefaultAsync(x => x.Username == username);
         }
 
         public async Task<bool> SaveAllAsync()

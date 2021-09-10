@@ -3,6 +3,7 @@ using HansAfriqueApi.Data;
 using HansAfriqueApi.Dto;
 using HansAfriqueApi.Entities;
 using HansAfriqueApi.Interface;
+using HansAfriqueApi.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,34 +26,40 @@ namespace HansAfriqueApi.Controllers
         private readonly ITokenService _tokenservice;
         private readonly IAuthRepository _repo;
         private readonly IMapper _mapper;
-        private readonly IUserRepository _userRepository;
+        private readonly UserRepository _userRepository;
 
-        public UserController( IUserRepository userRepository, DataContext context, ITokenService tokenservice, IAuthRepository repo, IMapper mapper)
+        public UserController(UserRepository userRepository, DataContext context, ITokenService tokenservice, IAuthRepository repo, IMapper mapper)
             {
-            _context = context;
+                _context = context;
             _tokenservice = tokenservice;
             _repo = repo;
             _mapper = mapper;
             _userRepository = userRepository;
-
         }
-            // GET api/values
-            [HttpGet]
-            public async Task<ActionResult<IEnumerable<Person>>> GetUsers()
+
+        // GET api/values
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Person>>> GetUsers()
+        {
+            var users = await _userRepository.GetUsersAsync();
+            return Ok(users);
+        }
+
+        [HttpGet("{username}")]
+        public async Task<ActionResult<Person>> GetUser(string username)
+        {
+
+            return await _userRepository.GetUsersByUsernameAsync(username);
+        }
+
+        // GET: api/People/5
+        [Authorize]
+            [HttpGet("{id}")]
+            public async Task<ActionResult<User>> GetPerson(int id)
             {
-               var users = await _userRepository.GetUsersAsync();
-               return Ok(users);
+                var getperson = await _context.Users.FindAsync(id);
+                return getperson;
             }
-
-    
-           [HttpGet("{username}")]
-            public async Task<ActionResult<Person>> GetUser(string username)
-            {
-
-                return await _userRepository.GetUsersByUsernameAsync(username);
-            }
-
-
 
 
         // PUT: api/People/5
