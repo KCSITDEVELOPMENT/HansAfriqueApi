@@ -25,31 +25,34 @@ namespace HansAfriqueApi.Controllers
         private readonly ITokenService _tokenservice;
         private readonly IAuthRepository _repo;
         private readonly IMapper _mapper;
+        private readonly IUserRepository _userRepository;
 
-        public UserController(DataContext context, ITokenService tokenservice, IAuthRepository repo, IMapper mapper)
+        public UserController( IUserRepository userRepository, DataContext context, ITokenService tokenservice, IAuthRepository repo, IMapper mapper)
             {
-                _context = context;
+            _context = context;
             _tokenservice = tokenservice;
             _repo = repo;
             _mapper = mapper;
+            _userRepository = userRepository;
 
         }
             // GET api/values
             [HttpGet]
-            public ActionResult<IEnumerable<User>> GetUsers()
+            public async Task<ActionResult<IEnumerable<Person>>> GetUsers()
             {
-                var people = _context.Users.ToList();
-                return people; 
+               var users = await _userRepository.GetUsersAsync();
+               return Ok(users);
             }
 
-            // GET: api/People/5
-            [Authorize]
-            [HttpGet("{id}")]
-            public async Task<ActionResult<User>> GetPerson(int id)
+    
+           [HttpGet("{username}")]
+            public async Task<ActionResult<Person>> GetUser(string username)
             {
-                var getperson = await _context.Users.FindAsync(id);
-                return getperson;
+
+                return await _userRepository.GetUsersByUsernameAsync(username);
             }
+
+
 
 
         // PUT: api/People/5
