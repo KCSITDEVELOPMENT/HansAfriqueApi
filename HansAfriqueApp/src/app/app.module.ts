@@ -13,6 +13,7 @@ import { ProductsComponent } from './products/products.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductsDetailsComponent } from './products-details/products-details.component';
 import { CartComponent } from './cart/cart.component';
+import { PayfastFormComponent } from './payfast-form/payfast-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CartComponent } from './cart/cart.component';
     LoginComponent,
     ProductsComponent,
     ProductsDetailsComponent,
-    CartComponent
+    CartComponent,
+    PayfastFormComponent
   ],
   imports: [
     BrowserModule,

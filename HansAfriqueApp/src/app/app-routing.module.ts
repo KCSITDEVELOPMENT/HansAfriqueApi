@@ -13,6 +13,7 @@ const routes: Routes = [
   {path: 'products', component: ProductsComponent },
   {path: 'products/id', component: ProductsDetailsComponent },
   {path: 'cart', component: CartComponent },
+  {path: 'cart/simplecartjs-basic-sample.html', component: CartComponent },
   {path: '**', component: HomeComponent, pathMatch:'full' },
 ];
 
