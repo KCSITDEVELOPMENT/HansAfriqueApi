@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProductsDetailsComponent } from './products-details/products-details.component';
 import { CartComponent } from './cart/cart.component';
 import { PayfastFormComponent } from './payfast-form/payfast-form.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PayfastFormComponent } from './payfast-form/payfast-form.component';
     ProductsComponent,
     ProductsDetailsComponent,
     CartComponent,
-    PayfastFormComponent
+    PayfastFormComponent,
+    TextInputComponent
   ],
   imports: [
     BrowserModule,

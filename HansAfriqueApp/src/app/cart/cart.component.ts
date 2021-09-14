@@ -2,21 +2,15 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cart',
-  templateUrl: './cart.component.html',
+  template: '<form action="https://sandbox.payfast.co.za​/eng/process" method="post"><input type="hidden" name="merchant_id" value="10000100"><input type="hidden" name="merchant_key" value="46f0cd694581a"><input type="hidden" name="amount" value="100.00"><input type="hidden" name="item_name" value="Test Product"><input type="submit"></form>',
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
  
-  amount : any =   'https://sandbox.payfast.co.za​/eng/process';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onNavigate(){
-    // your logic here.... like set the url 
-    const url = 'simplecartjs-basic-sample.html';
-    window.open(url);
-}
 }
