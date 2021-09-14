@@ -16,12 +16,11 @@ namespace HansAfriqueApi.Data
     
 
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<ProductBrand> ProductBrands { get; set; }
-        public DbSet<ProductType> ProductTypes { get; set; }
-
-        public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Part> Parts { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
 
     }
     

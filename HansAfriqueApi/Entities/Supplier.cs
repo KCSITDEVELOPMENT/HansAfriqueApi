@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace HansAfriqueApi.Entities
 {
-    public class ProductBrand : BaseEntity
+    public class Supplier : BaseEntity
     {
-        public string name { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
     }
 }

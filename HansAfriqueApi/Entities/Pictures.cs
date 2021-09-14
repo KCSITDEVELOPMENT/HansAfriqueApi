@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace HansAfriqueApi.Entities
 {
-    public class Product : BaseEntity
+    public class Pictures : BaseEntity
     {
-        public Brand Brand { get; set; }
-        public int Brandid { get; set; }
+        public string Name { get; set; }
         public Part Part { get; set; }
-
+        public int Partid { get; set; }
     }
 }

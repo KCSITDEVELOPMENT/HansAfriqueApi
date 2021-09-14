@@ -37,6 +37,7 @@ namespace HansAfriqueApi
         {
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<UserRepository, UserRepository>();
+            services.AddScoped<IProduct, ProductsRepository>();
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
