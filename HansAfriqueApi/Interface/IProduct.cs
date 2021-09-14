@@ -8,9 +8,10 @@ namespace HansAfriqueApi.Interface
 {
     public interface IProduct
     {
-        Task<Product> GetProductByIdAsync(int id);
-        Task<IReadOnlyList<Product>> GetProductsAsync();
-        Task<IReadOnlyList<ProductBrand>> GetProductsBrandsAsync();
-        Task<IReadOnlyList<Vehicle>> GetProductTypesAsync();
+        Task<Part> GetProductByIdAsync(int id);
+        Task<IReadOnlyList<Part>> GetProductsAsync();
+        Task<IReadOnlyList<Brand>> GetProductsBrandsAsync();
+        Task<IReadOnlyList<Supplier>> GetProductsSuppliersAsync();
+        Task<IReadOnlyList<Vehicle>> GetVehicleAsync();
     }
 }

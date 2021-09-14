@@ -23,29 +23,35 @@ namespace HansAfriqueApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> GetProducts()
+        public async Task<ActionResult<List<Part>>> GetProducts()
         {
             var products = await _repo.GetProductsAsync();
             return Ok(products);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Product>>> GetProduct(int id)
+        public async Task<ActionResult<List<Part>>> GetProduct(int id)
         {
             var products = await _repo.GetProductByIdAsync(id);
             return Ok(products);
         }
 
         [HttpGet("brands")]
-        public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrand()
+        public async Task<ActionResult<IReadOnlyList<Brand>>> GetProductBrand()
         {
             return Ok(await _repo.GetProductsBrandsAsync());
         }
 
-        [HttpGet("types")]
+        [HttpGet("vehicles")]
         public async Task<ActionResult<IReadOnlyList<Vehicle>>> GetProductTypes()
         {
-            return Ok(await _repo.GetProductsBrandsAsync());
+            return Ok(await _repo.GetVehicleAsync());
+        }
+
+        [HttpGet("supplier")]
+        public async Task<ActionResult<IReadOnlyList<Vehicle>>> GetSupplier()
+        {
+            return Ok(await _repo.GetProductsSuppliersAsync());
         }
 
 

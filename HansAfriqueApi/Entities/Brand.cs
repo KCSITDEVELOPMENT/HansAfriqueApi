@@ -1,6 +1,7 @@
 ﻿namespace HansAfriqueApi.Entities
 {
-    public class Brand
+    public class Brand : BaseEntity
     {
+        public string Name { get; set; }
     }
 }

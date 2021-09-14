@@ -19,24 +19,38 @@ namespace HansAfriqueApi.Repositories
         }
 
 
-        public async Task<Product> GetProductByIdAsync(int id)
+        public async Task<Part> GetProductByIdAsync(int id)
         {
-            return await _context.Products.FindAsync(id);
+            return await _context.Parts
+                .Include(p => p.Brand)
+                .Include(p => p.Vehicle)
+                .Include(p => p.Supplier)
+                .FirstOrDefaultAsync( p => p.id == id);
         }
 
-        public async Task<IReadOnlyList<Product>> GetProductsAsync()
+        public async Task<IReadOnlyList<Part>> GetProductsAsync()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Parts
+                .Include(p  => p.Brand)
+                .Include(p => p.Vehicle)
+                .Include(p => p.Supplier)
+                .ToListAsync();
         }
 
-        public async Task<IReadOnlyList<ProductBrand>> GetProductsBrandsAsync()
+        public async Task<IReadOnlyList<Brand>> GetProductsBrandsAsync()
         {
-            return await _context.ProductBrands.ToListAsync();
+            return await _context.Brands.ToListAsync();
         }
 
-        public async Task<IReadOnlyList<Vehicle>> GetProductTypesAsync()
+        public async Task<IReadOnlyList<Supplier>> GetProductsSuppliersAsync()
+        {
+            return await _context.Suppliers.ToListAsync();
+        }
+
+        public async Task<IReadOnlyList<Vehicle>> GetVehicleAsync()
         {
             return await _context.Vehicles.ToListAsync();
         }
+
     }
 }

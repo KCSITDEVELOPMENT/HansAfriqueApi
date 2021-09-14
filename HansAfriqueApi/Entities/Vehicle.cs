@@ -7,7 +7,6 @@ namespace HansAfriqueApi.Entities
 {
     public class Vehicle : BaseEntity
     {
-        public string Vehicle_Model { get; set; }
-        public string Vehicle_Category { get; set; }
+      public string Vehicle_Model { get; set; }
     }
 }
