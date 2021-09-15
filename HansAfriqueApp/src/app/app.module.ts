@@ -15,6 +15,7 @@ import { ProductsDetailsComponent } from './products-details/products-details.co
 import { CartComponent } from './cart/cart.component';
 import { PayfastFormComponent } from './payfast-form/payfast-form.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TextInputComponent } from './_forms/text-input/text-input.component';
     FormsModule,
     NgbModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

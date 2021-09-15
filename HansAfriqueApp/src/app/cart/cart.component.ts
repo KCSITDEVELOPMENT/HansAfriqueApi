@@ -1,16 +1,34 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { wallet } from '../models/wallet';
+import { PayfastService } from '../services/payfast.service';
 
 @Component({
   selector: 'app-cart',
-  template: '<form action="https://sandbox.payfast.co.za​/eng/process" method="post"><input type="hidden" name="merchant_id" value="10000100"><input type="hidden" name="merchant_key" value="46f0cd694581a"><input type="hidden" name="amount" value="100.00"><input type="hidden" name="item_name" value="Test Product"><input type="submit"></form>',
+  templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
- 
+  products : any = {}; 
+  walletAmount : wallet;
 
-  constructor() { }
+  constructor(private http: HttpClient, private payfastService : PayfastService,  private router: Router) { 
 
-  ngOnInit(): void {
+    this.walletAmount = new wallet()
   }
 
+  ngOnInit(): void {
+
+  }
+
+
+  send(){
+     
+    
+
+    this.payfastService.getProducts(this.walletAmount).subscribe(() => {
+      this.router.navigateByUrl('/https://sandbox.payfast.co.za​/eng/process' + this.walletAmount);
+    });
+  }
 }
