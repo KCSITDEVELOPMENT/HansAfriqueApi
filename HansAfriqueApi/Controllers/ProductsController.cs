@@ -54,6 +54,8 @@ namespace HansAfriqueApi.Controllers
             return Ok(await _repo.GetProductsSuppliersAsync());
         }
 
+   
+
 
     }
 }

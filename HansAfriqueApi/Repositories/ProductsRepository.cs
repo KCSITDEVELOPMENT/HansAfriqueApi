@@ -52,5 +52,6 @@ namespace HansAfriqueApi.Repositories
             return await _context.Vehicles.ToListAsync();
         }
 
+
     }
 }
