@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Part } from '../models/part';
-import { wallet } from '../models/wallet';
+import { Part } from '../_models/part';
+import { wallet } from '../_models/wallet';
 import { AccountService } from '../services/account.service';
 import { ProductService } from '../services/product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-products',
@@ -14,11 +15,16 @@ import { ProductService } from '../services/product.service';
 export class ProductsComponent implements OnInit {
   walletAmount : wallet;
   parts: Part[] = [];
+ 
 
-  constructor(private accountService: AccountService, private productService: ProductService, private http: HttpClient,  private router: Router) { 
+  constructor(private accountService: AccountService, private productService: ProductService, 
+    private http: HttpClient,  
+    private router: Router, 
+    private toastrService: ToastrService ) 
+    { 
+
     this.walletAmount = new wallet();
-
-  }
+    }
   
   ngOnInit(): void {
    this.getProducts();
@@ -31,6 +37,7 @@ export class ProductsComponent implements OnInit {
         console.log(this.parts);
       },error => {
         console.error();
+        this.toastrService.error(error.error);
       });
     }
 }

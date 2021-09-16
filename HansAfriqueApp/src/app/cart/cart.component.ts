@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { wallet } from '../models/wallet';
+import { wallet } from '../_models/wallet';
 import { PayfastService } from '../services/payfast.service';
 
 @Component({

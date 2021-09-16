@@ -49,3 +49,6 @@ body {
     margin: 1.4em 1em 1em 1em;
   }
 
+ .dropdown-toggle, .dropdown-toggle {
+   cursor: pointer;
+ }

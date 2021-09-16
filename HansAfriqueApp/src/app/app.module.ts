@@ -16,6 +16,9 @@ import { CartComponent } from './cart/cart.component';
 import { PayfastFormComponent } from './payfast-form/payfast-form.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ToastRef, ToastrModule } from 'ngx-toastr';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductsDetailsComponent,
     CartComponent,
     PayfastFormComponent,
-    TextInputComponent
+    TextInputComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgbModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
