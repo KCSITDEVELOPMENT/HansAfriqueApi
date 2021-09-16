@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Part } from '../models/part';
 import { wallet } from '../models/wallet';
 import { AccountService } from '../services/account.service';
-import { PayfastService } from '../services/payfast.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -11,25 +12,25 @@ import { PayfastService } from '../services/payfast.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products : any = [];
   walletAmount : wallet;
+  parts: Part[] = [];
 
+  constructor(private accountService: AccountService, private productService: ProductService, private http: HttpClient,  private router: Router) { 
+    this.walletAmount = new wallet();
 
-  constructor(private accountService: AccountService, private payfastService: PayfastService, private http: HttpClient,  private router: Router) { 
-    this.walletAmount = new wallet()
   }
   
   ngOnInit(): void {
-
-
-    this.http.get('https://localhost:5001/api/products').subscribe((response: any) => {
-      this.products =  response;
-      console.log(response);
-   
-    });
+   this.getProducts();
    
     }
 
-  
-
+    getProducts(){
+      this.productService.getProducts().subscribe((parts : Part[]) => {
+        this.parts = parts;
+        console.log(this.parts);
+      },error => {
+        console.error();
+      });
+    }
 }
