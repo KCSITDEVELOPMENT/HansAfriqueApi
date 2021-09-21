@@ -34,7 +34,6 @@ export class ProductsComponent implements OnInit {
     getProducts(){
       this.productService.getProducts().subscribe((parts : Part[]) => {
         this.parts = parts;
-        console.log(this.parts);
       },error => {
         console.error();
         this.toastrService.error(error.error);
