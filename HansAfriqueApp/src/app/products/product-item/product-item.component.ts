@@ -7,9 +7,11 @@ import { Part } from 'src/app/_models/part';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
-  @Input() product: Part[] = [];
+  @Input() product: Part;
 
-  constructor() { }
+  constructor() {
+    this.product = new Part;
+   }
 
   ngOnInit(): void {
   }

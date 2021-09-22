@@ -4,6 +4,7 @@ import {map } from 'rxjs/operators';
 import { User } from '../_models/user';
 import { ReplaySubject } from 'rxjs';
 import { isNull } from '@angular/compiler/src/output/output_ast';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -12,7 +13,7 @@ import { isNull } from '@angular/compiler/src/output/output_ast';
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment;
   private currentUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.currentUserSource.asObservable();
   getProducts: any;

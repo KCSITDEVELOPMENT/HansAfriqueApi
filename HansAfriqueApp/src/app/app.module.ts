@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ToastRef, ToastrModule } from 'ngx-toastr';
 import { AboutComponent } from './about/about.component';
+import { ProductItemComponent } from './products/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AboutComponent } from './about/about.component';
     CartComponent,
     PayfastFormComponent,
     TextInputComponent,
-    AboutComponent
+    AboutComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  walletAmount : wallet;
+
   parts: Part[] = [];
  
 
@@ -22,8 +22,8 @@ export class ProductsComponent implements OnInit {
     private router: Router, 
     private toastrService: ToastrService ) 
     { 
+    
 
-    this.walletAmount = new wallet();
     }
   
   ngOnInit(): void {
@@ -32,8 +32,8 @@ export class ProductsComponent implements OnInit {
     }
 
     getProducts(){
-      this.productService.getProducts().subscribe((parts : Part[]) => {
-        this.parts = parts;
+      this.productService.getProducts().subscribe((part : Part[]) => {
+        this.parts = part;
       },error => {
         console.error();
         this.toastrService.error(error.error);
