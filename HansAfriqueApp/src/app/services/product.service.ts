@@ -4,6 +4,8 @@ import {map } from 'rxjs/operators';
 import { User } from '../_models/user';
 import { Observable, ReplaySubject } from 'rxjs';
 import { Part } from '../_models/part';
+import { Brand } from '../_models/brand';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -12,7 +14,7 @@ import { Part } from '../_models/part';
   providedIn: 'root'
 })
 export class ProductService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.apiUrl;
 
 
   
@@ -22,5 +24,9 @@ export class ProductService {
     return this.http.get<Part[]>(this.baseUrl + 'products');
   }
   
+  
+  getBrands(): Observable<Brand[]> {
+    return this.http.get<Brand[]>(this.baseUrl + 'brands');
+  }
   
 }
