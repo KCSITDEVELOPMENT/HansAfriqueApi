@@ -1,47 +1,44 @@
-<div class="cart_section">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1">
-                <div class="cart_container">
-                    <div class="cart_title">Shopping Cart<small> (1 item in your cart) </small></div>
-                    <div class="cart_items">
-                        <ul class="cart_list">
-                            <li class="cart_item clearfix">
-                                <div class="cart_item_image"><img src="../../assets/images/Catalogue/1.hfr187-480GB_YOL06392_Watermark.png" alt=""></div>
-                                <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
-                                    <div class="cart_item_name cart_info_col">
-                                        <div class="cart_item_title">Name</div>
-                                        <div class="cart_item_text">Samsung C7 Pro</div>
-                                    </div>
-                                    <div class="cart_item_color cart_info_col">
-                                        <div class="cart_item_title">Color</div>
-                                        <div class="cart_item_text"><span style="background-color:#999999;"></span>Silver</div>
-                                    </div>
-                                    <div class="cart_item_quantity cart_info_col">
-                                        <div class="cart_item_title">Quantity</div>
-                                        <div class="cart_item_text">1</div>
-                                    </div>
-                                    <div class="cart_item_price cart_info_col">
-                                        <div class="cart_item_title">Price</div>
-                                        <div class="cart_item_text">₹22000</div>
-                                    </div>
-                                    <div class="cart_item_total cart_info_col">
-                                        <div class="cart_item_title">Total</div>
-                                        <div class="cart_item_text">₹22000</div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="order_total">
-                        <div class="order_total_content text-md-right">
-                            <div class="order_total_title">Order Total:</div>
-                            <div class="order_total_amount">₹22000</div>
-                        </div>
-                    </div>
-                    <div class="cart_buttons"> <button type="button" class="button cart_button_clear">Continue Shopping</button> <button type="button" class="button cart_button_checkout">Add to Cart</button> </div>
-                </div>
+
+
+<div class="container">
+    <div class="row">
+        <section class="col-3">
+            <ul class="list-group my-3 ml-4">
+                <li class="list-group-item active " aria-current="true" >Brands</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li>
+            </ul>
+
+              <ul class="list-group my-3 ml-4">
+                <li class="list-group-item active" aria-current="true">Part Categories</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li>
+              </ul>
+
+        </section>
+        
+        <section class="col-9 "> 
+             <div class="d-flex justify-content-between align-items-center pb-2">
+                 <div class="form-inline mx-4">
+                     <input class="form-control" style="width: 300px" placeholder="search" type="text">
+                     <button class="btn btn-outline-primary my-2">Search</button>
+                     <button class="btn btn-outline-success ml-2 my-2">Reset</button>
+                 </div>
+             </div>
+
+             <div class="row">
+                 <div class="col-4" *ngFor="let item of parts">
+                  <app-product-item  [product] = "item"></app-product-item>
+                 </div>
             </div>
-        </div>
-    </div>
+      
+        </section>
+
+    </div> 
 </div>
+
+
