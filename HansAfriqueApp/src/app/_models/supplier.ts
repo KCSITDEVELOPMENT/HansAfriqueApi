@@ -1,5 +1,4 @@
-export interface Supplier {
-    name: string;
-    address: string;
-    id: number;
+export class Supplier {
+    name: string = "";
+    id: number = 0;
 }

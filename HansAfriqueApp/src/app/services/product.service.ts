@@ -4,8 +4,10 @@ import {map } from 'rxjs/operators';
 import { User } from '../_models/user';
 import { Observable, ReplaySubject } from 'rxjs';
 import { Part } from '../_models/part';
-import { Brand } from '../_models/brand';
 import { environment } from 'src/environments/environment';
+import { PartCategory } from '../_models/PartCategory';
+import { Vehicle } from '../_models/vehicle';
+import { Supplier } from '../_models/supplier';
 
 
 
@@ -25,8 +27,15 @@ export class ProductService {
   }
   
   
-  getBrands(): Observable<Brand[]> {
-    return this.http.get<Brand[]>(this.baseUrl + 'brands');
+  getByPartCategory(): Observable<PartCategory[]> {
+    return this.http.get<PartCategory[]>(this.baseUrl + 'products/category');
+  }
+
+  getByVehicleModels(): Observable<Vehicle[]> {
+    return this.http.get<Vehicle[]>(this.baseUrl + 'products/vehicles');
   }
   
+  getBysuplliers(): Observable<Supplier[]> {
+    return this.http.get<Supplier[]>(this.baseUrl + 'products/supplier');
+  }
 }

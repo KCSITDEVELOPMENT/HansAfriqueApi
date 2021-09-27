@@ -5,18 +5,12 @@
         <section class="col-3">
             <ul class="list-group my-3 ml-4">
                 <li class="list-group-item active " aria-current="true" >Brands</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A fourth item</li>
-                <li class="list-group-item">And a fifth one</li>
+                <li class="list-group-item" *ngFor="let supplier of suppliers">{{supplier.name}}</li>
             </ul>
 
               <ul class="list-group my-3 ml-4">
                 <li class="list-group-item active" aria-current="true">Part Categories</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A fourth item</li>
-                <li class="list-group-item">And a fifth one</li>
+                <li class="list-group-item" *ngFor="let partcategory of partcategorys">{{partcategory.name}}</li>
               </ul>
 
         </section>
