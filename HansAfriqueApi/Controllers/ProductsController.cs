@@ -54,5 +54,11 @@ namespace HansAfriqueApi.Controllers
         {
             return Ok(await _repo.GetProductsSuppliersAsync());
         }
+
+        [HttpGet("category")]
+        public async Task<ActionResult<IReadOnlyList<PartCategory>>> GetCategory()
+        {
+            return Ok(await _repo.GetCategoryAsync());
+        }
     }
 }

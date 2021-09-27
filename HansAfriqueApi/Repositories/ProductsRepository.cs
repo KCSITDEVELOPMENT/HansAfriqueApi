@@ -18,6 +18,10 @@ namespace HansAfriqueApi.Repositories
             _context = context;
         }
 
+        public async Task<IReadOnlyList<PartCategory>> GetCategoryAsync()
+        {
+            return await _context.PartCategories.ToListAsync();
+        }
 
         public async Task<Part> GetProductByIdAsync(int id)
         {

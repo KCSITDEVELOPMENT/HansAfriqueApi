@@ -19,7 +19,7 @@ namespace HansAfriqueApi.Data
         public DbSet<Part> Parts { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<PartCategory> PartCategories { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
 
     }

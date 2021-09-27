@@ -13,5 +13,6 @@ namespace HansAfriqueApi.Interface
         Task<IReadOnlyList<Brand>> GetProductsBrandsAsync();
         Task<IReadOnlyList<Supplier>> GetProductsSuppliersAsync();
         Task<IReadOnlyList<Vehicle>> GetVehicleAsync();
+        Task<IReadOnlyList<PartCategory>> GetCategoryAsync();
     }
 }

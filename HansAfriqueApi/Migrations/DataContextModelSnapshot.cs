@@ -34,24 +34,6 @@ namespace HansAfriqueApi.Migrations
                     b.ToTable("Brands");
                 });
 
-            modelBuilder.Entity("HansAfriqueApi.Entities.Category", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Categories");
-                });
-
             modelBuilder.Entity("HansAfriqueApi.Entities.Part", b =>
                 {
                     b.Property<int>("id")
@@ -77,6 +59,12 @@ namespace HansAfriqueApi.Migrations
                     b.Property<string>("PCB_Part_Number")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PartCategoryid")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PartCategoryid1")
+                        .HasColumnType("int");
+
                     b.Property<string>("PictureULR")
                         .HasColumnType("nvarchar(max)");
 
@@ -90,11 +78,28 @@ namespace HansAfriqueApi.Migrations
 
                     b.HasIndex("Brandid");
 
+                    b.HasIndex("PartCategoryid1");
+
                     b.HasIndex("Supplierid");
 
                     b.HasIndex("Vehicleid");
 
                     b.ToTable("Parts");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.PartCategory", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("PartCategories");
                 });
 
             modelBuilder.Entity("HansAfriqueApi.Entities.Person", b =>
@@ -139,9 +144,6 @@ namespace HansAfriqueApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -189,6 +191,10 @@ namespace HansAfriqueApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("HansAfriqueApi.Entities.PartCategory", "PartCategory")
+                        .WithMany()
+                        .HasForeignKey("PartCategoryid1");
+
                     b.HasOne("HansAfriqueApi.Entities.Supplier", "Supplier")
                         .WithMany()
                         .HasForeignKey("Supplierid")
@@ -202,6 +208,8 @@ namespace HansAfriqueApi.Migrations
                         .IsRequired();
 
                     b.Navigation("Brand");
+
+                    b.Navigation("PartCategory");
 
                     b.Navigation("Supplier");
 

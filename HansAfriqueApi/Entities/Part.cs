@@ -19,5 +19,7 @@ namespace HansAfriqueApi.Entities
         public Supplier Supplier { get; set; }
         public int Supplierid { get; set; }
         public string PictureULR { get; set; }
+        public PartCategory PartCategory { get; set; }
+        public string PartCategoryid { get; set; }
     }
 }
