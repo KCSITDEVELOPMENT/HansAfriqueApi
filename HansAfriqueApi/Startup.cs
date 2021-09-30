@@ -39,11 +39,23 @@ namespace HansAfriqueApi
             services.AddScoped<IUserRepositoryInterface, UserRepository>();
             services.AddScoped<IProduct, ProductsRepository>();
 
+            //services.AddDbContext<DataContext>(options =>
+            //{
+            // options.UseMySql(GetConnectionString("DefaultConnection"));
+            //});
+
+            //string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
+            //services.AddDbContextPool<DataContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+
+            //services.AddDbContext<DataContext>(options =>
+            //{
+            //options.UseSqlite(_config.GetConnectionString("DefaultConnection"));
+            //});
+
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
             });
-
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddCors(c =>
@@ -74,8 +86,6 @@ namespace HansAfriqueApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseAuthentication();

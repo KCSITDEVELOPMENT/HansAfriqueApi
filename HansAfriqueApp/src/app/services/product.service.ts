@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { PartCategory } from '../_models/PartCategory';
 import { Vehicle } from '../_models/vehicle';
 import { Supplier } from '../_models/supplier';
+import { Brand } from '../_models/brand';
 
 
 
@@ -37,5 +38,9 @@ export class ProductService {
   
   getBysuplliers(): Observable<Supplier[]> {
     return this.http.get<Supplier[]>(this.baseUrl + 'products/supplier');
+  }
+
+  getByBrands(): Observable<Brand[]> {
+    return this.http.get<Brand[]>(this.baseUrl + 'products/brands');
   }
 }

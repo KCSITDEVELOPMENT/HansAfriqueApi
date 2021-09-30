@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Vehicle } from '../_models/vehicle';
 import { Supplier } from '../_models/supplier';
 import { PartCategory } from '../_models/PartCategory';
+import { Brand } from '../_models/brand';
 
 @Component({
   selector: 'app-products',
@@ -21,6 +22,7 @@ export class ProductsComponent implements OnInit {
   vehiclemodels : Vehicle[] = [];
   suppliers : Supplier[] = [];
   partcategorys : PartCategory [] = [];
+  brands : Brand[] = [];
 
   constructor(private accountService: AccountService, private productService: ProductService, 
     private http: HttpClient,  
@@ -73,6 +75,16 @@ export class ProductsComponent implements OnInit {
        this.partcategorys = partscategory;
        console.log(this.partcategorys);
 
+      },error => {
+        console.error();
+        this.toastrService.error(error.error);
+      });
+    }
+
+    getvehicle_Brands(){
+      this.productService.getByBrands().subscribe((brand : Brand[]) =>{
+       this.brands = brand;
+       console.log(this.brands);
       },error => {
         console.error();
         this.toastrService.error(error.error);
