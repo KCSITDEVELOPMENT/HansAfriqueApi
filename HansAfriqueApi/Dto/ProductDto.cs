@@ -7,14 +7,16 @@ namespace HansAfriqueApi.Dto
 {
     public class ProductDto
     {
+        public int id { get; set; }
         public string Name { get; set; }
-        public string OEM_Part_Number { get; set; }
-        public string HFR_Part_Number { get; set; }
-        public string PCB_Part_Number { get; set; }
-        public string LUK_Part_Number { get; set; }
-        public int Brandid { get; set; }
-        public int Vehicleid { get; set; }
-        public int Supplierid { get; set; }
-        public string PictureULR { get; set; }
+        public string Brand { get; set; }
+        public string Vehicle { get; set; }
+        public string Supplier { get; set; }
+        public string PictureULR { get; set; } 
+        public decimal Price { get; set; }
+        public string PartCategory { get; set; }
+        public string PartCode { get; set; }
+        public string VehicleModel { get; set; }
+        public string PartNumber { get; set; }
     }
 }

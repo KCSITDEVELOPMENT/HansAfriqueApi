@@ -1,4 +1,5 @@
 using HansAfriqueApi.Data;
+using HansAfriqueApi.Helpers;
 using HansAfriqueApi.Interface;
 using HansAfriqueApi.Repositories;
 using HansAfriqueApi.Services;
@@ -38,19 +39,8 @@ namespace HansAfriqueApi
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserRepositoryInterface, UserRepository>();
             services.AddScoped<IProduct, ProductsRepository>();
-
-            //services.AddDbContext<DataContext>(options =>
-            //{
-            // options.UseMySql(GetConnectionString("DefaultConnection"));
-            //});
-
-            //string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
-            //services.AddDbContextPool<DataContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
-
-            //services.AddDbContext<DataContext>(options =>
-            //{
-            //options.UseSqlite(_config.GetConnectionString("DefaultConnection"));
-            //});
+            services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+            services.AddAutoMapper(typeof(AutomapperProfiles));
 
             services.AddDbContext<DataContext>(options =>
             {

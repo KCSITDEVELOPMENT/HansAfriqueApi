@@ -55,5 +55,38 @@ namespace HansAfriqueApi.Repositories
         {
             return await _context.Vehicles.ToListAsync();
         }
+
+
+        public async Task AddProduct(Part part)
+        {
+            _context.Parts.Add(part);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateProduct(Part part)
+        {
+            var ProductToUpdate = await _context.Parts.FindAsync(part.id);
+            if (ProductToUpdate == null)
+                throw new NullReferenceException();
+
+            ProductToUpdate.Name = part.Name;
+            ProductToUpdate.PartNumberid = part.PartCategoryid;
+            ProductToUpdate.PartCode = part.PartCode;
+            ProductToUpdate.PartNumberid = part.PartNumberid;
+            ProductToUpdate.Price = part.Price;
+            ProductToUpdate.VehicleModel = part.VehicleModel;
+            await _context.SaveChangesAsync();
+        }
+
+
+        public async Task DeleteProduct(Part part)
+        {
+            var ProductToUpdate = await _context.Parts.FindAsync(part.id);
+            if (ProductToUpdate == null)
+                throw new NullReferenceException();
+
+            _context.Parts.Remove(ProductToUpdate);
+            await _context.SaveChangesAsync();
+        }
     }
 }

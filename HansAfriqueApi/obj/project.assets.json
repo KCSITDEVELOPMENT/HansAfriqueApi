@@ -5809,11 +5809,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
+      "projectUniqueName": "E:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
       "projectName": "HansAfriqueApi",
-      "projectPath": "D:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
+      "projectPath": "E:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
       "packagesPath": "C:\\Users\\DEV1\\.nuget\\packages\\",
-      "outputPath": "D:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\obj\\",
+      "outputPath": "E:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
