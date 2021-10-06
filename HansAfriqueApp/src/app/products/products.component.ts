@@ -23,6 +23,7 @@ export class ProductsComponent implements OnInit {
   suppliers : Supplier[] = [];
   partcategorys : PartCategory [] = [];
   brands : Brand[] = [];
+  brandIdSeleted!: number;
 
   constructor(private accountService: AccountService, private productService: ProductService, 
     private http: HttpClient,  
@@ -37,6 +38,7 @@ export class ProductsComponent implements OnInit {
    this.getProducts();
    this.getvehicle_Models();
    this.getvehicle_Suppliers();
+   this.getvehicle_Brands();
    
     }
 
@@ -89,5 +91,10 @@ export class ProductsComponent implements OnInit {
         console.error();
         this.toastrService.error(error.error);
       });
+    }
+
+    onBrandsSelected(brandId: number){
+     this.brandIdSeleted = brandId;
+     this.getProducts();
     }
 }

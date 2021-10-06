@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import {map } from 'rxjs/operators';
 import { User } from '../_models/user';
 import { Observable, ReplaySubject } from 'rxjs';
@@ -18,6 +18,7 @@ import { Brand } from '../_models/brand';
 })
 export class ProductService {
   baseUrl = environment.apiUrl;
+  parts: Part[] = [];
 
 
   
@@ -27,8 +28,7 @@ export class ProductService {
     return this.http.get<Part[]>(this.baseUrl + 'products');
   }
   
-  
-  getByPartCategory(): Observable<PartCategory[]> {
+  getByPartCategory() {
     return this.http.get<PartCategory[]>(this.baseUrl + 'products/category');
   }
 
@@ -40,7 +40,7 @@ export class ProductService {
     return this.http.get<Supplier[]>(this.baseUrl + 'products/supplier');
   }
 
-  getByBrands(): Observable<Brand[]> {
+  getByBrands() {
     return this.http.get<Brand[]>(this.baseUrl + 'products/brands');
   }
 }

@@ -20,6 +20,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ToastRef, ToastrModule } from 'ngx-toastr';
 import { AboutComponent } from './about/about.component';
 import { ProductItemComponent } from './products/product-item/product-item.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import { AddproductComponent } from './products/addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ProductItemComponent } from './products/product-item/product-item.compo
     PayfastFormComponent,
     TextInputComponent,
     AboutComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    ProductEditComponent,
+    AddproductComponent
   ],
   imports: [
     BrowserModule,
