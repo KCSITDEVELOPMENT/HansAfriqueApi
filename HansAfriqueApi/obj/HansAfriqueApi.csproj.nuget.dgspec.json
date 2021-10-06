@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj": {}
+    "F:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj": {}
   },
   "projects": {
-    "E:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj": {
+    "F:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
+        "projectUniqueName": "F:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
         "projectName": "HansAfriqueApi",
-        "projectPath": "E:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
+        "projectPath": "F:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
         "packagesPath": "C:\\Users\\DEV1\\.nuget\\packages\\",
-        "outputPath": "E:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\obj\\",
+        "outputPath": "F:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

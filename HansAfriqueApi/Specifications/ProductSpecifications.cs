@@ -15,6 +15,7 @@ namespace HansAfriqueApi.Specifications
             AddInclude(x => x.PartCategory);
             AddInclude(x => x.Supplier);
             AddInclude(x => x.Vehicle);
+            AddInclude(x => x.PartNumber);
         }
 
         public ProductSpecifications(int id): base(x =>x.id == id)
@@ -23,6 +24,7 @@ namespace HansAfriqueApi.Specifications
             AddInclude(x => x.PartCategory);
             AddInclude(x => x.Supplier);
             AddInclude(x => x.Vehicle);
+            AddInclude(x => x.PartNumber);
         }
     }
 }

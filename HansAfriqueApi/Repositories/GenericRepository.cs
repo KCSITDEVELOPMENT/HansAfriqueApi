@@ -24,14 +24,14 @@ namespace HansAfriqueApi.Repositories
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task<T> GetEntityWithSpec(ISpecifications<T> spec)
-        {
-            return await ApplySpecification(spec).FirstOrDefaultAsync();
-        }
-
         public async Task<IReadOnlyList<T>> ListAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
+        }
+
+        public async Task<T> GetEntityWithSpec(ISpecifications<T> spec)
+        {
+            return await ApplySpecification(spec).FirstOrDefaultAsync();
         }
 
         public async Task<IReadOnlyList<T>> ListAsync(ISpecifications<T> spec)
