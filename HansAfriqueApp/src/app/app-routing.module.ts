@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { AuthGuard } from './_gaurds/auth.guard';
 import { AboutComponent } from './about/about.component';
+import { EditproductComponent } from './products/editproduct/editproduct.component';
+import { ProductOperationsComponent } from './products/product-operations/product-operations.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
@@ -16,11 +18,13 @@ const routes: Routes = [
      runGuardsAndResolvers: 'always',
      canActivate: [AuthGuard],
      children: [
-     
+
+      {path: 'editproduct/:id', component: EditproductComponent },
+      {path: 'productoperations', component: ProductOperationsComponent },
       {path: 'products', component: ProductsComponent },
-      {path: 'products/id', component: ProductsDetailsComponent },
+      {path: 'products/:id', component: ProductsDetailsComponent },
       {path: 'cart', component: CartComponent },
-      {path: 'cart/simplecartjs-basic-sample.html', component: CartComponent },
+
      ]
    },
 

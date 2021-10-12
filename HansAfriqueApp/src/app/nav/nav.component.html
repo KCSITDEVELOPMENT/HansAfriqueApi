@@ -10,7 +10,8 @@
             <li><a routerLink="/home">Home</a></li> 
             <li><a routerLink="/products">Products</a></li> 
             <li><a routerLink="/cart">Checkout</a></li>
-            <li><a routerLink="/about">About Us</a></li>
+            <li><a routerLink="/editproduct">Product Edit</a></li>
+            <li><a routerLink="/productoperations">Product Operations</a></li>
             <li><a *ngIf="currentUser$ | async" routerLink="/home"  (click)= "logout()" >Logout</a></li>
 
           </ul>
