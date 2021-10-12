@@ -21,18 +21,20 @@ namespace HansAfriqueApi.Controllers
         private readonly IGenericRepository<Vehicle> _vehiclesRepo;
         private readonly IGenericRepository<PartCategory> _partscategoryRepo;
         private readonly IGenericRepository<Supplier> _suppliersRepo;
+        private readonly IGenericRepository<PartNumber> _partnumbeRepo;
         private readonly IMapper _mapper;
 
         public ProductsController(IGenericRepository<Part> partsRepo, IGenericRepository<Brand> brandsRepo, 
             IGenericRepository<Vehicle> vehiclesRepo, IGenericRepository<PartCategory> partscategoryRepo,
-            IGenericRepository<Supplier> suppliersRepo, IMapper mapper)
+            IGenericRepository<Supplier> suppliersRepo, IGenericRepository<PartNumber> partnumbeRepo, IMapper mapper)
         {
             _partsRepo = partsRepo;
             _brandsRepo = brandsRepo;
             _vehiclesRepo = vehiclesRepo;
             _partscategoryRepo = partscategoryRepo;
             _suppliersRepo = suppliersRepo;
-            _mapper = mapper;
+            _partnumbeRepo = partnumbeRepo;
+           _mapper = mapper;
 
         }
 
@@ -79,6 +81,12 @@ namespace HansAfriqueApi.Controllers
         public async Task<ActionResult<IReadOnlyList<PartCategory>>> GetCategory()
         {
             return Ok(await _partscategoryRepo.ListAllAsync());
+        }
+
+        [HttpGet("partnamber")]
+        public async Task<ActionResult<IReadOnlyList<PartCategory>>> GetPartnumber()
+        {
+            return Ok(await _partnumbeRepo.ListAllAsync());
         }
 
     }

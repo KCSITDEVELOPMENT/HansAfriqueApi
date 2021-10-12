@@ -20,7 +20,7 @@ namespace HansAfriqueApi.Controllers
             _iproductOperationsInterface = iproductOperationsInterface;
         }
 
-        [HttpPost]
+        [HttpPost("save")]
         public async Task<ActionResult> CreatePeople(CreateProductDto productDto)
         {
             var part = new Part
@@ -34,7 +34,8 @@ namespace HansAfriqueApi.Controllers
                 Price = productDto.Price,
                 PartCategoryid = productDto.PartCategory,
                 PartNumberid = productDto.PartNumber,
-                VehicleModel = productDto.VehicleModel
+                VehicleModel = productDto.VehicleModel,
+                id = productDto.id
             };
 
             await _iproductOperationsInterface.AddProduct(part);
@@ -46,14 +47,16 @@ namespace HansAfriqueApi.Controllers
         {
             var part = new Part
             {
-
                 id = id,
                 Name = productUpdateDto.Name,
                 PartNumberid = productUpdateDto.PartNumberid,
+                Brandid =  productUpdateDto.Brandid,
+                Supplierid = productUpdateDto.Supplierid,
+                PictureULR = productUpdateDto.PictureULR,
+                PartCategoryid = productUpdateDto.PartCategoryid,
                 PartCode = productUpdateDto.PartCode,
                 Price = productUpdateDto.Price,
                 VehicleModel = productUpdateDto.VehicleModel
-
             };
 
             await _iproductOperationsInterface.UpdateProduct(part);

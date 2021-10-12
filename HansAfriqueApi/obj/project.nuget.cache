@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pYO/lsXZDdUI1RTL4zPIq03/JN6v/41PQvrYSl8ly+gkK5lm3xqBEh5/FGOCi/hhiQIxPHC0jyzbChsp0DGmWQ==",
+  "dgSpecHash": "Fik3x01t24qB/GvOxj9jaQQIMBbTN6FmouSSDX9NoJ4mP6JHFh60moVa1y82j1ABdqDih1l6E/MtCgiRAVa5qg==",
   "success": true,
-  "projectFilePath": "F:\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
+  "projectFilePath": "F:\\HFR\\New folder\\HansAfriqueApi\\HansAfriqueApi\\HansAfriqueApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DEV1\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\DEV1\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

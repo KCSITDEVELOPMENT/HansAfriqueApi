@@ -20,8 +20,6 @@ namespace HansAfriqueApi.Helpers
                 .ForMember(d => d.PartCategory, o => o.MapFrom(s => s.PartCategory.Name));
 
 
-            CreateMap<Pictures, PicturesDto>();
-            CreateMap<ProductUpdateDto, Part>();
         }
     }
 }
