@@ -29,7 +29,6 @@ export class EditproductComponent implements OnInit {
 
 
   id!: number;  
-  bankAccountForms: FormArray = this.formBuilder.array([]);
   editForm: FormGroup;
 
 
@@ -75,18 +74,6 @@ export class EditproductComponent implements OnInit {
 
 
   }
-
-
-
-  
-  //getProducts(){
-   // this.productService.getProducts().subscribe((part : Part[]) => {
-    //  this.parts = part;
-   // },error => {
-   //   console.error();
-  //    this.toastrService.error(error.error);
-  //  });
- // }
 
   getVehicle_Brands(){
     this.productService.getByBrands().subscribe((brand : Brand[]) =>{
@@ -141,25 +128,10 @@ export class EditproductComponent implements OnInit {
       this.toastrService.error(error.error);
     });
   }
-  //updateProducts(){
-   //this.productoperationService.putProducts(this.partData).subscribe(() => {
-    //console.log(this.partData);
-    //this.getProducts();
-   //});
-
-  //}
 
   onSubmit(formData: { value: any; }) {
     this.productoperationService.putProducts(this.id , formData.value).subscribe(res => {
   
     });
   }
-
-  recordSubmit(fg: FormGroup){}
-
-//populateForm(SelectedPerson : Part)
-//{
- // this.partData = Object.assign({}, SelectedPerson)
-//}
-
 }

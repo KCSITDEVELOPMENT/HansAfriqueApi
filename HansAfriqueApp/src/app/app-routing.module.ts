@@ -10,6 +10,7 @@ import { AuthGuard } from './_gaurds/auth.guard';
 import { AboutComponent } from './about/about.component';
 import { EditproductComponent } from './products/editproduct/editproduct.component';
 import { ProductOperationsComponent } from './products/product-operations/product-operations.component';
+import { AddproductComponent } from './products/addproduct/addproduct.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
    },
 
     {path: 'about', component: AboutComponent },
+    {path: 'addproduct', component: AddproductComponent },
     {path: 'login', component:  LoginComponent },
     {path: '**', component: HomeComponent, pathMatch:'full' },
 ];

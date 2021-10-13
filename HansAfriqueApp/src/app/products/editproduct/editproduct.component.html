@@ -1,13 +1,17 @@
 <div class="container">
   <br />
-  <div class="row">
-    <div class="col">
-      <h3>Update Player</h3>
+
+    <div class="row">
+        <div class="col">
+          <h3>Update Part</h3>
+        </div>
+
+     <div class="col text-right">
+         <a href="#" routerLink="/productoperations" class="btn btn-secondary btn-sm">Back To Parts</a>
+     </div>
+
     </div>
-    <div class="col text-right">
-      <a href="#" routerLink="/players/list" class="btn btn-secondary btn-sm">Back To Players List</a>
-    </div>
-  </div>
+
   <br />
   <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
  
@@ -17,99 +21,139 @@
  
  
     <div class="form-group">
-      <input formControlName="name"
+        <input formControlName="name"
              id="name"
              type="text"
              class="form-control" />
+
        <small id="emailHelp" class="form-text text-muted">Part Name</small>
+
     </div>
    
     <div class="form-group">
-      <select formControlName="partNumberid"
+        <select formControlName="partNumberid"
               id="brandid"
               class="form-control">
+
         <option value="">- Select -</option>
+
         <option *ngFor="let position of partnumbers" [ngValue]="position.id">
           {{position.name}}
         </option>
-      </select>
+
+        </select>
+
       <small id="emailHelp" class="form-text text-muted">Part Number</small>
+
     </div>
     
     <div class="form-group">
-      <input formControlName="partCode"
+             <input formControlName="partCode"
              id="partCode"
              type="text"
              class="form-control" />
+
        <small id="emailHelp" class="form-text text-muted">Part Type Code</small>
+
     </div>
  
     <div class="form-group">
-      <input formControlName="price"
+            <input formControlName="price"
              id="price"
              type="text"
              class="form-control" />
+
        <small id="emailHelp" class="form-text text-muted">price</small>
+
     </div>
 
-    <div class="form-group">
+  <div class="form-group">
+
       <select formControlName="brandid"
               id="brandid"
               class="form-control">
-        <option value="">- Select -</option>
-        <option *ngFor="let position of brands" [ngValue]="position.id">
-          {{position.name}}
-        </option>
-      </select>
+
+             <option value="">- Select -</option>
+
+           <option *ngFor="let position of brands" [ngValue]="position.id">
+              {{position.name}}
+           </option>
+
+       </select>
+
       <small id="emailHelp" class="form-text text-muted">Brands</small>
+
     </div>
 
-    <div class="form-group">
+  <div class="form-group">
+
       <select formControlName="vehicleid"
               id="vehicleid"
               class="form-control">
-        <option value="">- Select -</option>
-        <option *ngFor="let position of vehiclemodels" [ngValue]="position.id">
-          {{position.vehicle_Model}}
-        </option>
-      </select>
-      <small id="emailHelp" class="form-text text-muted">Vehicle Type</small>
-    </div>
 
-    <div class="form-group">
+           <option value="">- Select -</option>
+
+          <option *ngFor="let position of vehiclemodels" [ngValue]="position.id">
+             {{position.vehicle_Model}}
+          </option>
+
+      </select>
+
+      <small id="emailHelp" class="form-text text-muted">Vehicle Type</small>
+
+  </div>
+
+  <div class="form-group">
+
       <input formControlName="vehicleModel"
              id="vehicleModel"
              type="text"
              class="form-control" />
+
        <small id="emailHelp" class="form-text text-muted">Vehicle Model</small>
-    </div>
+
+  </div>
    
 
-    <div class="form-group">
+  <div class="form-group">
+
       <select formControlName="supplierid"
               id="supplierid"
               class="form-control">
-        <option value="">- Select -</option>
-        <option *ngFor="let position of suppliers" [ngValue]="position.id">
-          {{position.name}}
-        </option>
-      </select>
-      <small id="emailHelp" class="form-text text-muted">Supplier Name</small>
-    </div>
 
-    <div class="form-group">
+        <option value="">- Select -</option>
+
+          <option *ngFor="let position of suppliers" [ngValue]="position.id">
+             {{position.name}}
+          </option>
+
+      </select>
+
+      <small id="emailHelp" class="form-text text-muted">Supplier Name</small>
+
+  </div>
+
+  <div class="form-group">
+
       <select formControlName="partCategoryid"
               id="partCategoryid"
               class="form-control">
+
         <option value="">- Select -</option>
+
         <option *ngFor="let position of partcategorys" [ngValue]="position.id">
           {{position.name}}
         </option>
+
       </select>
+
       <small id="emailHelp" class="form-text text-muted">Part category Names</small>
-    </div>
+
+  </div>
  
       <button class="btn btn-primary" type="submit" [disabled]="!editForm.valid">Update</button>
+
   </form>
+  
 </div>
 

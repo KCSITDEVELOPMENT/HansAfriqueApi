@@ -1,4 +1,5 @@
-<table style="width:50%;" class="table float-start" *ngFor="let part of parts">
+<br>
+<table class="table table-striped" *ngFor="let part of parts">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -14,11 +15,10 @@
       <td >{{part.partCode}}</td>
       <td >{{part.price}}</td>
     <td>
-      <div class="btn-group" style="width:50%">
-        <button (click) ="postParts()" type="button" class="btn btn-primary "> Save</button><br>
-        <button form="updateForm" type="submit" routerLink="/products{{part.id}}" class="btn btn-secondary ">Update</button><br>
-        <button (click) ="onDelete(part.id)" type="submit" class="btn btn-primary ">Delete</button><div></div>
-        <a href="#" [routerLink]="['/editproduct/', part.id]" class="btn btn-primary btn-sm">Edit</a> 
+      <div class="btn-group">
+        <button class="Btn" [routerLink]="['/addproduct']" type="button" class="btn btn-success "> Create</button>
+        <button  class="Btn" (click) ="onDelete(part.id)" type="submit" class="btn btn-danger ">Delete</button>
+        <button class="Btn" [routerLink]="['/editproduct/', part.id]" class="btn btn-warning">Update</button>
         </div>
     </td>
     </tr>

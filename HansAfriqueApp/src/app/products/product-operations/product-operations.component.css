@@ -1,0 +1,16 @@
+.btn-group{
+    padding: 10px;
+    position: relative;
+    margin: 10px;
+}
+
+.Btn{
+    display: inline-block;
+    width: 70px; 
+    height: 30px; 
+    text-align: center;
+    border: gray;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}

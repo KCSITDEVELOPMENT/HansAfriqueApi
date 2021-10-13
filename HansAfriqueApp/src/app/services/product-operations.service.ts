@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Part } from '../_models/part';
 
@@ -19,11 +20,16 @@ export class ProductOperationsService {
 
   constructor(private http: HttpClient) { }
 
-  postProducts(part: Part) {
-    return this.http.post<Part>(this.baseUrl + 'ProductOperations/save', part);
+  postProducts(formData : any): Observable<Part> {
+    return this.http.post<Part>(this.baseUrl + 'ProductOperations/save', JSON.stringify(formData), this.httpOptions );
+  
   }
 
   putProducts( id: number | undefined,formData : any) {
     return this.http.put(this.baseUrl + 'ProductOperations/' + id, JSON.stringify(formData), this.httpOptions );
+  }
+
+  DeleteUser(id: number) {
+    return this.http.delete<Part>( this.baseUrl +'ProductOperations/' + id);
   }
 }

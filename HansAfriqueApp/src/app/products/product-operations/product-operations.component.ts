@@ -31,7 +31,7 @@ export class ProductOperationsComponent implements OnInit {
 
   constructor(private productService: ProductService, private toastrService: ToastrService,
      private productoperationService: ProductOperationsService,
-      private router: Router, private route: ActivatedRoute,) { 
+      private router: Router, private route: ActivatedRoute, private productOperationsService: ProductOperationsService) { 
 
   }
 
@@ -80,19 +80,17 @@ export class ProductOperationsComponent implements OnInit {
     });
   }
 
-    
-  //updateProducts(){
-    //this.productoperationService.putProducts(this.partData).subscribe(() => {
-     //console.log(this.partData);
-    //this.getProducts();
-    //});
- 
-   //}
+  
+onDelete(id: number)
+ {
+  this.productOperationsService.DeleteUser(id).subscribe(() => {
+    this.getProducts();
+ }, error => {
+  console.error();
+  this.toastrService.error(error.error);
+ });
 
-
-
-
-onDelete(id: number){}
+}  
 
 postParts(){}
 

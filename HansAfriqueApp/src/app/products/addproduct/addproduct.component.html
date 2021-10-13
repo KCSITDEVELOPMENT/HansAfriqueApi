@@ -1,1 +1,155 @@
-<p>addproduct works!</p>
+<div class="container">
+    <br />
+  
+      <div class="row">
+          <div class="col">
+            <h3>Add Part</h3>
+          </div>
+  
+       <div class="col text-right">
+           <a href="#" routerLink="/productoperations" class="btn btn-secondary btn-sm">Back To Parts</a>
+       </div>
+  
+      </div>
+  
+    <br />
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+   
+      <div class="form-group">
+          <input formControlName="name"
+               id="name"
+               type="text"
+               class="form-control" />
+  
+         <small id="emailHelp" class="form-text text-muted">Part Name</small>
+  
+      </div>
+     
+      <div class="form-group">
+          <select formControlName="partNumber"
+                id="partNumber"
+                class="form-control">
+  
+          <option value="">- Select -</option>
+  
+          <option *ngFor="let position of partnumbers" [ngValue]="position.id">
+            {{position.name}}
+          </option>
+  
+          </select>
+  
+        <small id="emailHelp" class="form-text text-muted">Part Number</small>
+  
+      </div>
+      
+      <div class="form-group">
+               <input formControlName="partCode"
+               id="partCode"
+               type="text"
+               class="form-control" />
+  
+         <small id="emailHelp" class="form-text text-muted">Part Type Code</small>
+  
+      </div>
+   
+      <div class="form-group">
+              <input formControlName="price"
+               id="price"
+               type="text"
+               class="form-control" />
+  
+         <small id="emailHelp" class="form-text text-muted">price</small>
+  
+      </div>
+  
+    <div class="form-group">
+  
+        <select formControlName="brand"
+                id="brand"
+                class="form-control">
+  
+               <option value="">- Select -</option>
+  
+             <option *ngFor="let position of brands" [ngValue]="position.id">
+                {{position.name}}
+             </option>
+  
+         </select>
+  
+        <small id="emailHelp" class="form-text text-muted">Brands</small>
+  
+      </div>
+  
+    <div class="form-group">
+  
+        <select formControlName="vehicle"
+                id="vehicle"
+                class="form-control">
+  
+             <option value="">- Select -</option>
+  
+            <option *ngFor="let position of vehiclemodels" [ngValue]="position.id">
+               {{position.vehicle_Model}}
+            </option>
+  
+        </select>
+  
+        <small id="emailHelp" class="form-text text-muted">Vehicle Type</small>
+  
+    </div>
+  
+    <div class="form-group">
+  
+        <input formControlName="vehicleModel"
+               id="vehicleModel"
+               type="text"
+               class="form-control" />
+  
+         <small id="emailHelp" class="form-text text-muted">Vehicle Model</small>
+  
+    </div>
+     
+  
+    <div class="form-group">
+  
+        <select formControlName="supplier"
+                id="supplier"
+                class="form-control">
+  
+          <option value="">- Select -</option>
+  
+            <option *ngFor="let position of suppliers" [ngValue]="position.id">
+               {{position.name}}
+            </option>
+  
+        </select>
+  
+        <small id="emailHelp" class="form-text text-muted">Supplier Name</small>
+  
+    </div>
+  
+    <div class="form-group">
+  
+        <select formControlName="partCategory"
+                id="partCategory"
+                class="form-control">
+  
+          <option value="">- Select -</option>
+  
+          <option *ngFor="let position of partcategorys" [ngValue]="position.id">
+            {{position.name}}
+          </option>
+  
+        </select>
+  
+        <small id="emailHelp" class="form-text text-muted">Part category Names</small>
+  
+    </div>
+   
+        <button class="btn btn-primary" type="submit" [disabled]="!editForm.valid">Create Product</button>
+  
+    </form>
+    
+  </div>
+  
+  
