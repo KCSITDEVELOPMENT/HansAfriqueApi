@@ -20,7 +20,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ToastRef, ToastrModule } from 'ngx-toastr';
 import { AboutComponent } from './about/about.component';
 import { ProductItemComponent } from './products/product-item/product-item.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
 import { AddproductComponent } from './products/addproduct/addproduct.component';
 import { EditproductComponent } from './products/editproduct/editproduct.component';
 import { ProductOperationsComponent } from './products/product-operations/product-operations.component';
@@ -39,7 +38,6 @@ import { ProductOperationsComponent } from './products/product-operations/produc
     TextInputComponent,
     AboutComponent,
     ProductItemComponent,
-    ProductEditComponent,
     AddproductComponent,
     EditproductComponent,
     ProductOperationsComponent
