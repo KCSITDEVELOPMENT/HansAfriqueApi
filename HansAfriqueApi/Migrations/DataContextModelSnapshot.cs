@@ -34,6 +34,35 @@ namespace HansAfriqueApi.Migrations
                     b.ToTable("Brands");
                 });
 
+            modelBuilder.Entity("HansAfriqueApi.Entities.FileData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FileExtension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MimeType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Partid")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Partid");
+
+                    b.ToTable("Photos");
+                });
+
             modelBuilder.Entity("HansAfriqueApi.Entities.Part", b =>
                 {
                     b.Property<int>("id")
@@ -198,6 +227,17 @@ namespace HansAfriqueApi.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Vehicles");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.FileData", b =>
+                {
+                    b.HasOne("HansAfriqueApi.Entities.Part", "Part")
+                        .WithMany()
+                        .HasForeignKey("Partid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Part");
                 });
 
             modelBuilder.Entity("HansAfriqueApi.Entities.Part", b =>

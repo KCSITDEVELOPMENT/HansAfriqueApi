@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HansAfriqueApi.Migrations
 {
-    public partial class NewMigration : Migration
+    public partial class EditTablesforPhotos : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,7 +34,7 @@ namespace HansAfriqueApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PartNumber",
+                name: "PartNumbers",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -43,7 +43,7 @@ namespace HansAfriqueApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PartNumber", x => x.id);
+                    table.PrimaryKey("PK_PartNumbers", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -139,9 +139,9 @@ namespace HansAfriqueApi.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Parts_PartNumber_PartNumberid",
+                        name: "FK_Parts_PartNumbers_PartNumberid",
                         column: x => x.PartNumberid,
-                        principalTable: "PartNumber",
+                        principalTable: "PartNumbers",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -154,6 +154,29 @@ namespace HansAfriqueApi.Migrations
                         name: "FK_Parts_Vehicles_Vehicleid",
                         column: x => x.Vehicleid,
                         principalTable: "Vehicles",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Photos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FileExtension = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MimeType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FilePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Partid = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Photos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Photos_Parts_Partid",
+                        column: x => x.Partid,
+                        principalTable: "Parts",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -182,18 +205,26 @@ namespace HansAfriqueApi.Migrations
                 name: "IX_Parts_Vehicleid",
                 table: "Parts",
                 column: "Vehicleid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Photos_Partid",
+                table: "Photos",
+                column: "Partid");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Parts");
-
-            migrationBuilder.DropTable(
                 name: "People");
 
             migrationBuilder.DropTable(
+                name: "Photos");
+
+            migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Parts");
 
             migrationBuilder.DropTable(
                 name: "Brands");
@@ -202,7 +233,7 @@ namespace HansAfriqueApi.Migrations
                 name: "PartCategories");
 
             migrationBuilder.DropTable(
-                name: "PartNumber");
+                name: "PartNumbers");
 
             migrationBuilder.DropTable(
                 name: "Suppliers");

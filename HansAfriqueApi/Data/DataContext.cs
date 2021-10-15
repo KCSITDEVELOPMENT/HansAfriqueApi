@@ -22,7 +22,7 @@ namespace HansAfriqueApi.Data
         public DbSet<PartCategory> PartCategories { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<PartNumber> PartNumbers { get; set; }
-
+        public DbSet<FileData> Photos { get; set; }
     }
     
 }

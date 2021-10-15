@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HansAfriqueApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20211004120435_New Migration")]
-    partial class NewMigration
+    [Migration("20211015133416_EditTablesforPhotos")]
+    partial class EditTablesforPhotos
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,35 @@ namespace HansAfriqueApi.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Brands");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.FileData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FileExtension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MimeType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Partid")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Partid");
+
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("HansAfriqueApi.Entities.Part", b =>
@@ -118,7 +147,7 @@ namespace HansAfriqueApi.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("PartNumber");
+                    b.ToTable("PartNumbers");
                 });
 
             modelBuilder.Entity("HansAfriqueApi.Entities.Person", b =>
@@ -200,6 +229,17 @@ namespace HansAfriqueApi.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Vehicles");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.FileData", b =>
+                {
+                    b.HasOne("HansAfriqueApi.Entities.Part", "Part")
+                        .WithMany()
+                        .HasForeignKey("Partid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Part");
                 });
 
             modelBuilder.Entity("HansAfriqueApi.Entities.Part", b =>
