@@ -12,6 +12,7 @@ namespace HansAfriqueApi.Entities
         public string FileExtension { get; set; }
         public string MimeType { get; set; }
         public string FilePath { get; set; }
+        public bool IsMain { get; set; }
         public int Partid { get; set; }
         public Part Part { get; set; }
      

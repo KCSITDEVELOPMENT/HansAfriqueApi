@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HansAfriqueApi.Controllers;
+using HansAfriqueApi.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,5 +25,6 @@ namespace HansAfriqueApi.Entities
         public PartNumber PartNumber { get; set; }
         public string VehicleModel { get; set; }
         public string PictureULR { get; set; }
+        public ICollection<FileData> Photo { get; set; }
     }
 }
