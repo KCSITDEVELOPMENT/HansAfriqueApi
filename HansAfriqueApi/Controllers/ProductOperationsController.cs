@@ -45,8 +45,9 @@ namespace HansAfriqueApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Updateproduct(ProductUpdateDto productUpdateDto, int id)
+        public async Task<ActionResult> Updateproduct(ProductUpdateDto productUpdateDto, IFormFile myFile, int id)
         {
+
 
             var part = new Part
             {

@@ -14,6 +14,7 @@ namespace HansAfriqueApi.Dto
         public string Vehicle { get; set; }
         public string Supplier { get; set; }
         public decimal Price { get; set; }
+        public string PictureULR { get; set; }
         public string PartCategory { get; set; }
         public string PartCode { get; set; }
         public string VehicleModel { get; set; }

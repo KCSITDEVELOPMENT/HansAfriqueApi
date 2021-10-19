@@ -10,6 +10,7 @@
             public string AltText { get; set; }
             public string Description { get; set; }
             public int Partid { get; set; }
+            public bool IsMain { get; set; }
 
     }
 }

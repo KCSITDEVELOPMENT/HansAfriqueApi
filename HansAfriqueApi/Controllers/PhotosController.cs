@@ -18,7 +18,7 @@ namespace HansAfriqueApi.Controllers
     public class PhotosController : ControllerBase
     {
         private readonly DataContext _context;
-        private readonly string AppDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Photos");
+        private readonly string AppDirectory = Path.Combine("../HansAfriquePics/src/assets/PhotoUploads/");
         private static List<FileRecordDto> fileDB = new List<FileRecordDto>();
 
         public PhotosController(DataContext context)
@@ -36,6 +36,11 @@ namespace HansAfriqueApi.Controllers
 
                 if (!string.IsNullOrEmpty(file.FilePath))
                 {
+                    var ProductPhotos = _context.Photos.Where(n => n.Partid == id).Count();
+                    if (ProductPhotos == 0) {
+                        file.IsMain = true;
+                    }
+
                     file.AltText = model.AltText;
                     file.Description = model.Description;
                     file.Partid = id;
@@ -63,7 +68,7 @@ namespace HansAfriqueApi.Controllers
                     Directory.CreateDirectory(AppDirectory);
 
                 var fileName = DateTime.Now.Ticks.ToString() + Path.GetExtension(myFile.FileName);
-                var path = Path.Combine(AppDirectory, fileName);
+                var path = AppDirectory+ fileName;
 
                 file.Id = fileDB.Count() + 1;
                 file.FilePath = path;
@@ -79,6 +84,7 @@ namespace HansAfriqueApi.Controllers
                 return file;
             }
             return file;
+
         }
 
         private void SaveToDB(FileRecordDto record)
@@ -86,23 +92,25 @@ namespace HansAfriqueApi.Controllers
             if (record == null)
                 throw new ArgumentNullException($"{nameof(record)}");
 
+            
+
             FileData fileData = new FileData();
             fileData.FilePath = record.FilePath;
             fileData.FileName = record.FileName;
             fileData.FileExtension = record.FileFormat;
             fileData.MimeType = record.ContentType;
             fileData.Partid = record.Partid;
+            fileData.IsMain = record.IsMain;
 
             _context.Photos.Add(fileData);
             _context.SaveChanges();
+       
         }
 
         [HttpGet]
         public List<FileRecordDto> GetAllFiles()
         {
-            //getting data from inmemory obj
-            //return fileDB;
-            //getting data from SQL DB
+
             return _context.Photos.Select(n => new FileRecordDto
             {
                 ContentType = n.MimeType,

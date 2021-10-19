@@ -20,6 +20,8 @@ namespace HansAfriqueApi.Helpers
                 .ForMember(d => d.PartNumber, o => o.MapFrom(s => s.PartNumber.Name))
                 .ForMember(d => d.Vehicle, o => o.MapFrom(s => s.Vehicle.Vehicle_Model))
                 .ForMember(d => d.PartCategory, o => o.MapFrom(s => s.PartCategory.Name))
+                .ForMember(d => d.Photos, o => o.MapFrom(s => s.Photo))
+                 .ForMember(d => d.PictureULR, o => o.MapFrom(s => s.Photo.LastOrDefault().FilePath))
                 .ForMember(d => d.Brand, o => o.MapFrom(s => s.Brand.Name));
 
             CreateMap<FileData, FileRecordDto>();
