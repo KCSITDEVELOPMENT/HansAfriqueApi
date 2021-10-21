@@ -206,20 +206,6 @@ main.sign-up-mode .carousel {
   left: 0%;
 }
 
-.carousel {
-  position: absolute;
-  height: 100%;
-  width: 55%;
-  left: 45%;
-  top: 0;
-  background-color: #ffe0d2;
-  border-radius: 2rem;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  padding-bottom: 2rem;
-  overflow: hidden;
-  transition: 0.8s ease-in-out;
-}
 
 .images-wrapper {
   display: grid;
@@ -345,14 +331,6 @@ main.sign-up-mode .carousel {
     transform: translateX(0%);
   }
 
-  .carousel {
-    position: revert;
-    height: auto;
-    width: 100%;
-    padding: 3rem 2rem;
-    display: flex;
-  }
-
   .images-wrapper {
     display: none;
   }
@@ -373,11 +351,6 @@ main.sign-up-mode .carousel {
 
   .inner-box {
     padding: 1rem;
-  }
-
-  .carousel {
-    padding: 1.5rem 1rem;
-    border-radius: 1.6rem;
   }
 
   .text-wrap {
