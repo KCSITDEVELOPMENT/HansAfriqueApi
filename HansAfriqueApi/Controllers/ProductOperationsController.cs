@@ -1,9 +1,11 @@
 ﻿using HansAfriqueApi.Dto;
 using HansAfriqueApi.Entities;
 using HansAfriqueApi.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -43,8 +45,10 @@ namespace HansAfriqueApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Updateproduct(ProductUpdateDto productUpdateDto, int id)
+        public async Task<ActionResult> Updateproduct(ProductUpdateDto productUpdateDto, IFormFile myFile, int id)
         {
+
+
             var part = new Part
             {
                 id = id,
@@ -69,7 +73,5 @@ namespace HansAfriqueApi.Controllers
             await _iproductOperationsInterface.DeleteProduct(id);
             return Ok();
         }
-
-
     }
 }

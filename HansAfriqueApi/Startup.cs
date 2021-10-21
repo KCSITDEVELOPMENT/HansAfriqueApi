@@ -43,6 +43,8 @@ namespace HansAfriqueApi
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
             services.AddAutoMapper(typeof(AutomapperProfiles));
 
+            services.AddControllers();
+
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));

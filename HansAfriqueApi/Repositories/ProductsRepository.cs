@@ -29,6 +29,7 @@ namespace HansAfriqueApi.Repositories
                 .Include(p => p.Brand)
                 .Include(p => p.Vehicle)
                 .Include(p => p.Supplier)
+                //.Include(p => p.FileData)
                 .FirstOrDefaultAsync( p => p.id == id);
         }
 
@@ -38,6 +39,7 @@ namespace HansAfriqueApi.Repositories
                 .Include(p  => p.Brand)
                 .Include(p => p.Vehicle)
                 .Include(p => p.Supplier)
+                //.Include(p => p.FileData)
                 .ToListAsync();
         }
 

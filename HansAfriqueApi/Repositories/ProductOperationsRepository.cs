@@ -35,6 +35,7 @@ namespace HansAfriqueApi.Repositories
             ProductToUpdate.PartNumberid = part.PartNumberid;
             ProductToUpdate.Price = part.Price;
             ProductToUpdate.VehicleModel = part.VehicleModel;
+            ProductToUpdate.PictureULR = part.PictureULR;
             await _context.SaveChangesAsync();
         }
 

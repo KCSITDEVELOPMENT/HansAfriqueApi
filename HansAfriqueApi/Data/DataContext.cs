@@ -13,8 +13,8 @@ namespace HansAfriqueApi.Data
         public DbSet<Person> People { get; set; }
 
         public DbSet<User> Users { get; set; }
-    
 
+        public DbSet<Picture> Pictures { get; set; }
 
         public DbSet<Part> Parts { get; set; }
         public DbSet<Brand> Brands { get; set; }
@@ -22,7 +22,7 @@ namespace HansAfriqueApi.Data
         public DbSet<PartCategory> PartCategories { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<PartNumber> PartNumbers { get; set; }
-
+        public DbSet<FileData> Photos { get; set; }
     }
     
 }

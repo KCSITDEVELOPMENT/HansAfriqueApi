@@ -32,4 +32,8 @@ export class ProductOperationsService {
   DeleteUser(id: number) {
     return this.http.delete<Part>( this.baseUrl +'ProductOperations/' + id);
   }
+
+  postPhotos( id: number | undefined,formData : any) {
+    return this.http.post(this.baseUrl + 'Photos/' + id, JSON.stringify(formData), this.httpOptions );
+  }
 }
