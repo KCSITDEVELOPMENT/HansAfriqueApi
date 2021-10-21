@@ -18,7 +18,8 @@ namespace HansAfriqueApi.Controllers
     public class PhotosController : ControllerBase
     {
         private readonly DataContext _context;
-        private readonly string AppDirectory = Path.Combine("../HansAfriquePics/src/assets/PhotoUploads/");
+        private readonly string AppDirectory = Path.Combine("wwwroot/pics/");
+        private readonly string AppDirectoryPath = Path.Combine("pics/");
         private static List<FileRecordDto> fileDB = new List<FileRecordDto>();
 
         public PhotosController(DataContext context)
@@ -68,10 +69,11 @@ namespace HansAfriqueApi.Controllers
                     Directory.CreateDirectory(AppDirectory);
 
                 var fileName = DateTime.Now.Ticks.ToString() + Path.GetExtension(myFile.FileName);
-                var path = AppDirectory+ fileName;
+                var path = AppDirectory + fileName;
+                var pathurl = AppDirectoryPath+ fileName;
 
                 file.Id = fileDB.Count() + 1;
-                file.FilePath = path;
+                file.FilePath = pathurl;
                 file.FileName = fileName;
                 file.FileFormat = Path.GetExtension(myFile.FileName);
                 file.ContentType = myFile.ContentType;
