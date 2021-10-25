@@ -10,6 +10,7 @@ import { Vehicle } from '../_models/vehicle';
 import { Supplier } from '../_models/supplier';
 import { PartCategory } from '../_models/PartCategory';
 import { Brand } from '../_models/brand';
+import { Pagination } from '../_models/pagination';
 
 @Component({
   selector: 'app-products',
@@ -24,6 +25,7 @@ export class ProductsComponent implements OnInit {
   partcategorys : PartCategory [] = [];
   brands : Brand[] = [];
   brandIdSeleted!: number;
+  Parts : Pagination[] = [];
 
   constructor(private accountService: AccountService, private productService: ProductService, 
     private http: HttpClient,  
@@ -43,8 +45,8 @@ export class ProductsComponent implements OnInit {
     }
 
     getProducts(){
-      this.productService.getProducts().subscribe((part : Part[]) => {
-        this.parts = part;
+      this.productService.getProducts().subscribe((part : Pagination) => {
+        this.parts = part.data;
       },error => {
         console.error();
         this.toastrService.error(error.error);

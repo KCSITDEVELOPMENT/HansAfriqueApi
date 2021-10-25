@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   register(){
     this.accountService.register(this.model).subscribe(response => {
-      this.router.navigateByUrl('/cart')
+      this.router.navigateByUrl('/login')
       console.log(response);
      }, error => {
        console.log(error);

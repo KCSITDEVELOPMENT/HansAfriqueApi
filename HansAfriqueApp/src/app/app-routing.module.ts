@@ -21,6 +21,7 @@ const routes: Routes = [
      canActivate: [AuthGuard],
      children: [
 
+      {path: 'addproduct', component: AddproductComponent },
       {path: 'editproduct/:id', component: EditproductComponent },
       {path: 'productoperations', component: ProductOperationsComponent },
       {path: 'products', component: ProductsComponent },

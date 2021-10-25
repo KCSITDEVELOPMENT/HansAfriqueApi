@@ -10,6 +10,7 @@ import { Vehicle } from '../_models/vehicle';
 import { Supplier } from '../_models/supplier';
 import { Brand } from '../_models/brand';
 import { Partnumber } from '../_models/partnumber';
+import { Pagination } from '../_models/pagination';
 
 
 
@@ -28,8 +29,8 @@ export class ProductService {
 
   constructor( private http: HttpClient) { }
 
-  getProducts(): Observable<Part[]> {
-    return this.http.get<Part[]>(this.baseUrl + 'products');
+  getProducts(){
+    return this.http.get<Pagination>(this.baseUrl + 'products');
   }
   
   getProductsByid(id: any): Observable<Part[]> {
