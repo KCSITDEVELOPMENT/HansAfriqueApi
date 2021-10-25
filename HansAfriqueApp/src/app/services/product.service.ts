@@ -29,7 +29,7 @@ export class ProductService {
 
   constructor( private http: HttpClient) { }
 
-  getProducts(){
+  getProducts(brandsid?: number, vehiclemodelsid?:number){
     return this.http.get<Pagination>(this.baseUrl + 'products');
   }
   
