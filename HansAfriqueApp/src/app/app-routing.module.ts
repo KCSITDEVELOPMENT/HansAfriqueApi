@@ -26,15 +26,15 @@ const routes: Routes = [
       {path: 'productoperations', component: ProductOperationsComponent },
       {path: 'products', component: ProductsComponent },
       {path: 'products/:id', component: ProductsDetailsComponent },
+      {path: 'addproduct', component: AddproductComponent },
+      {path: 'picturesofproduct/:id', component: PicturesofproductComponent },
       {path: 'cart', component: CartComponent },
 
      ]
    },
 
     {path: 'about', component: AboutComponent },
-    {path: 'addproduct', component: AddproductComponent },
     {path: 'register', component: RegisterComponent },
-    {path: 'picturesofproduct/:id', component: PicturesofproductComponent },
     {path: 'login', component:  LoginComponent },
     {path: '**', component: HomeComponent, pathMatch:'full' },
 ];

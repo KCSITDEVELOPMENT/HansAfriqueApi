@@ -15,7 +15,7 @@
                               <li><a routerLink="/addproduct">Add Product</a></li>
                               <li class=""><a href="">About Us</a></li>
                               <li class=""><a href="">Contact</a></li>
-                              <li class=""><a href="">Videos</a></li>
+                              <li><a *ngIf="currentUser$ | async" routerLink="/home"  (click)= "logout()" >Logout</a></li>
 
                           </ul>
                       </nav>

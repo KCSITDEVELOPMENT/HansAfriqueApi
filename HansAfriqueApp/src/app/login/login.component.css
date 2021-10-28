@@ -81,7 +81,7 @@ html {
   input[type=button], input[type=submit], input[type=reset]  {
     background-color: #56baed;
     border: none;
-    color: white;
+    color: rgb(252, 232, 232);
     padding: 15px 80px;
     text-align: center;
     text-decoration: none;
@@ -113,7 +113,7 @@ html {
   }
   
   input[type=text] {
-    background-color: #f6f6f6;
+    background-color: #f5d8d8;
     border: none;
     color: #0d0d0d;
     padding: 15px 32px;
@@ -134,7 +134,7 @@ html {
   }
 
   input[type=password] {
-    background-color: #f6f6f6;
+    background-color: #f5d8d8;
     border: none;
     color: #0d0d0d;
     padding: 15px 32px;

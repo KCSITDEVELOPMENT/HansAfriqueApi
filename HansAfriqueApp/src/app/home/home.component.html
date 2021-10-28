@@ -1,23 +1,51 @@
 <div class="container mt-5">
- <div *ngIf= "!registerMode " style="text-align: center;">
-   <h1>HansAfriQue Cart</h1>
-    <p class="lead">Buy from your Couch..</p>
-    <div class="text-center">
-        <button (click) = "registerToggle()" class="btn btn-primary btn-lg mr-2">Register</button>
-        <button class="btn btn-info btn-lg">Learn More</button>
-    
+
+  &nbsp;&nbsp; 
+  <div class="container py-4">
+    <div class="copyright">
+
     </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
+    </div>
+  </div>
+  &nbsp;&nbsp; 
+  <div class="container py-4">
+    <div class="copyright">
+
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
+    </div>
+  </div>
+  &nbsp;&nbsp; 
+  &nbsp;&nbsp; 
+
+<owl-carousel-o [options]="customOptions">
+  <ng-template carouselSlide>
+    <img src="../../assets/images/slider/11.png" alt="" width="370" height="250" class="d-inline-block align-text-top">
+  </ng-template>  
+
+
+  <ng-template carouselSlide>
+    <img src="../../assets/images/slider/21.png" alt="" width="370" height="250" class="d-inline-block align-text-top">
+  </ng-template>  
+
+
+  <ng-template carouselSlide>
+    <img src="../../assets/images/slider/31.png" alt="" width="370" height="250" class="d-inline-block align-text-top">
+  </ng-template>  
+</owl-carousel-o>
+
 </div>
 
-<div *ngIf= "registerMode" class="container">
-    <div class="row justify-content-center">
-        <app-register></app-register>
-       
-    </div>
-</div>
-</div>
-
-<body>
+<body >
 <div>
   &nbsp;&nbsp; 
   <div class="container py-4">

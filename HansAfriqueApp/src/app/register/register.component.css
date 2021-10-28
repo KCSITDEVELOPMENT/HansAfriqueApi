@@ -113,7 +113,7 @@ html {
   }
   
   input[type=text] {
-    background-color: #f6f6f6;
+    background-color: #f5d8d8;
     border: none;
     color: #0d0d0d;
     padding: 15px 32px;
@@ -134,7 +134,7 @@ html {
   }
 
   input[type=password] {
-    background-color: #f6f6f6;
+    background-color: #f5d8d8;
     border: none;
     color: #0d0d0d;
     padding: 15px 32px;
