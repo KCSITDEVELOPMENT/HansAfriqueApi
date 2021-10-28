@@ -12,6 +12,7 @@ import { EditproductComponent } from './products/editproduct/editproduct.compone
 import { ProductOperationsComponent } from './products/product-operations/product-operations.component';
 import { AddproductComponent } from './products/addproduct/addproduct.component';
 import { PicturesofproductComponent } from './products/picturesofproduct/picturesofproduct.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
 
     {path: 'about', component: AboutComponent },
     {path: 'addproduct', component: AddproductComponent },
+    {path: 'register', component: RegisterComponent },
     {path: 'picturesofproduct/:id', component: PicturesofproductComponent },
     {path: 'login', component:  LoginComponent },
     {path: '**', component: HomeComponent, pathMatch:'full' },
