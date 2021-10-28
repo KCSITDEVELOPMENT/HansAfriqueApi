@@ -39,9 +39,9 @@ namespace HansAfriqueApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts(string sort, int brandid, int vehicleid, int supplierid, int partCategoryid)
         {
-            var spec = new ProductSpecifications();
+            var spec = new ProductSpecifications(sort, brandid, vehicleid, supplierid, partCategoryid);
 
             var products = await _partsRepo.ListAsync(spec);
 
