@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -21,7 +21,7 @@ export class PicturesofproductComponent implements OnInit {
   fileToUpload: any;
   id!: number;
 
-  constructor(private http:  HttpClient,  private route: ActivatedRoute, private formBuilder: FormBuilder) { 
+  constructor(private http:  HttpClient,  private route: ActivatedRoute,private router: Router, private formBuilder: FormBuilder) { 
 
     this.fileForm = this.formBuilder.group({
       id: ['',  Validators.required],
@@ -43,6 +43,7 @@ export class PicturesofproductComponent implements OnInit {
 
   saveFileInfo()
   {
+    this.router.navigateByUrl('/productoperations')
     debugger
     this.id = this.id;
 

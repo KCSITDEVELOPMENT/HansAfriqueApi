@@ -9,6 +9,7 @@ import { Pagination } from 'src/app/_models/pagination';
 import { Part } from 'src/app/_models/part';
 import { PartCategory } from 'src/app/_models/PartCategory';
 import { Partnumber } from 'src/app/_models/partnumber';
+import { ProductParams } from 'src/app/_models/productParams';
 
 @Component({
   selector: 'app-product-operations',
@@ -27,6 +28,7 @@ export class ProductOperationsComponent implements OnInit {
   public dropDownIdPartBrand: number = 0;
   editForm: any;
   id: number | undefined;
+  productParams = new ProductParams();
 
 
 
@@ -46,7 +48,7 @@ export class ProductOperationsComponent implements OnInit {
 
 
   getProducts(){
-    this.productService.getProducts().subscribe((part : Pagination) => {
+    this.productService.getProducts(this.productParams).subscribe((part : any) => {
       this.parts = part.data;
     },error => {
       console.error();

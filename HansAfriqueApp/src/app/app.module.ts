@@ -25,6 +25,7 @@ import { EditproductComponent } from './products/editproduct/editproduct.compone
 import { ProductOperationsComponent } from './products/product-operations/product-operations.component';
 import { PicturesofproductComponent } from './products/picturesofproduct/picturesofproduct.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [
@@ -55,10 +56,12 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     CarouselModule,
+    PaginationModule.forRoot(),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     })
   ],
+  exports: [PaginationModule],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import {map } from 'rxjs/operators';
+import {delay, map } from 'rxjs/operators';
 import { User } from '../_models/user';
 import { Observable, ReplaySubject } from 'rxjs';
 import { Part } from '../_models/part';
@@ -11,6 +11,7 @@ import { Supplier } from '../_models/supplier';
 import { Brand } from '../_models/brand';
 import { Partnumber } from '../_models/partnumber';
 import { Pagination } from '../_models/pagination';
+import { ProductParams } from '../_models/productParams';
 
 
 
@@ -29,9 +30,30 @@ export class ProductService {
 
   constructor( private http: HttpClient) { }
 
-  getProducts() {
-    return this.http.get<Pagination>(this.baseUrl + 'products');
+  getProducts(productParams: ProductParams) {
+    let params = new HttpParams();
+
+    if(productParams.brandId !== 0){
+      params = params.append('brandId', productParams.brandId.toString())
+    }
+
+    if(productParams.vehicleCategoryId !== 0){
+      params = params.append('vehicleCategoryId', productParams.vehicleCategoryId.toString())
+    }
+
+    params = params.append('pageIndex', productParams.pageNumber.toString());
+    params = params.append('pageIndex', productParams.pageSize.toString());
+
+    return this.http.get<Pagination>(this.baseUrl + 'products', {observe: 'response', params})
+     .pipe(
+           map(response => {
+             return response.body;
+
+         })
+     );
   }
+
+
   
   getProductsByid(id: any): Observable<Part[]> {
     return this.http.get<Part[]>(this.baseUrl + `products/${id}`);
