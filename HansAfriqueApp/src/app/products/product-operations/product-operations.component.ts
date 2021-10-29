@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ProductOperationsService } from 'src/app/services/product-operations.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Brand } from 'src/app/_models/brand';
+import { Pagination } from 'src/app/_models/pagination';
 import { Part } from 'src/app/_models/part';
 import { PartCategory } from 'src/app/_models/PartCategory';
 import { Partnumber } from 'src/app/_models/partnumber';
@@ -45,8 +46,8 @@ export class ProductOperationsComponent implements OnInit {
 
 
   getProducts(){
-    this.productService.getProducts().subscribe((part : Part[]) => {
-      this.parts = part;
+    this.productService.getProducts().subscribe((part : Pagination) => {
+      this.parts = part.data;
     },error => {
       console.error();
       this.toastrService.error(error.error);
