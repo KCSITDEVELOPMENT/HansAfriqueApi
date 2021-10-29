@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HansAfriqueApi.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -12,7 +13,7 @@ namespace HansAfriqueApi.Specifications
         {
         }
 
-        public BaseSpecification(Expression<Func<T, bool>> criteria )
+        public BaseSpecification(Expression<Func<T, bool>> criteria)
         {
             Criteria = criteria;
         }
@@ -25,12 +26,18 @@ namespace HansAfriqueApi.Specifications
 
         public Expression<Func<T, object>> OrderByDescending { get; private set; }
 
-        protected void AddInclude (Expression<Func<T, object>> includeExpression) 
+        public int Take { get; private set; }
+
+        public int Skip { get; private set; }
+
+        public bool IsPagingEnabled { get; private set; }
+
+        protected void AddInclude(Expression<Func<T, object>> includeExpression)
         {
             Includes.Add(includeExpression);
         }
 
-        protected void AddOrderBy(Expression<Func<T, object>> OrderByEpression) 
+        protected void AddOrderBy(Expression<Func<T, object>> OrderByEpression)
         {
             OrderBy = OrderByEpression;
         }
@@ -38,6 +45,14 @@ namespace HansAfriqueApi.Specifications
         protected void AddOrderByDescending(Expression<Func<T, object>> OrderByDescEpression)
         {
             OrderByDescending = OrderByDescEpression;
+        }
+
+
+        protected void ApplyPaging(int skip, int take)
+        {
+            Skip = skip;
+            Take = take;
+            IsPagingEnabled = true;
         }
     }
 }

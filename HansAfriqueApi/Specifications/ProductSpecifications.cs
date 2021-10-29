@@ -9,12 +9,14 @@ namespace HansAfriqueApi.Specifications
 {
     public class ProductSpecifications : BaseSpecification<Part>
     {
-        public ProductSpecifications(string sort, int? brandid, int? vehicleid, int? supplierid, int? partCategoryid)
-            : base(x =>
-            (!brandid.HasValue || x.Brandid == brandid) &&
-            (!vehicleid.HasValue || x.Vehicleid == vehicleid) &&
-            (!supplierid.HasValue || x.Supplierid == supplierid) &&
-            (!partCategoryid.HasValue || x.PartCategoryid == partCategoryid)
+        public ProductSpecifications(ProductSpecParams productParams)
+                : base(x =>
+            (string.IsNullOrEmpty(productParams.Search) || x.Name.ToLower().Contains(productParams.Search)) &&
+            (!productParams.BrandId.HasValue || x.Brandid == productParams.BrandId) &&
+            (!productParams.VehicleId.HasValue || x.Vehicleid == productParams.VehicleId) &&
+            (!productParams.SupplierId.HasValue || x.Supplierid == productParams.SupplierId) &&
+            (!productParams.PartCategoryId.HasValue || x.PartCategoryid == productParams.PartCategoryId) &&
+            (!productParams.PartNumerid.HasValue || x.PartNumberid == productParams.PartNumerid)
             )
         {
             AddInclude(x => x.Brand);
@@ -24,10 +26,12 @@ namespace HansAfriqueApi.Specifications
             AddInclude(x => x.PartNumber);
             AddInclude(x => x.Photo);
             AddOrderBy(x => x.Name);
+            ApplyPaging(productParams.PageSize * (productParams.PageIndex - 1),
+                productParams.PageSize);
 
-            if (!string.IsNullOrEmpty(sort)) 
+            if (!string.IsNullOrEmpty(productParams.Sort))
             {
-                switch (sort)
+                switch (productParams.Sort)
                 {
                     case "priceAsc":
                         AddOrderBy(p => p.Price);
@@ -42,7 +46,7 @@ namespace HansAfriqueApi.Specifications
             }
         }
 
-        public ProductSpecifications(int id): base(x =>x.id == id)
+        public ProductSpecifications(int id) : base(x => x.id == id)
         {
             AddInclude(x => x.Brand);
             AddInclude(x => x.PartCategory);

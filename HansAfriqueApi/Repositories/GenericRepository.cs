@@ -14,10 +14,10 @@ namespace HansAfriqueApi.Repositories
     {
         private readonly DataContext _context;
 
-        public GenericRepository(DataContext context) 
-         {
+        public GenericRepository(DataContext context)
+        {
             _context = context;
-    }
+        }
 
         public async Task<T> GetByIdAsync(int id)
         {
@@ -37,6 +37,11 @@ namespace HansAfriqueApi.Repositories
         public async Task<IReadOnlyList<T>> ListAsync(ISpecifications<T> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
+        }
+
+        public async Task<int> CountAsync(ISpecifications<T> spec)
+        {
+            return await ApplySpecification(spec).CountAsync();
         }
 
         private IQueryable<T> ApplySpecification(ISpecifications<T> spec)

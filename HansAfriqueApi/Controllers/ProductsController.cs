@@ -2,6 +2,7 @@
 using HansAfriqueApi.Data;
 using HansAfriqueApi.Dto;
 using HansAfriqueApi.Entities;
+using HansAfriqueApi.Helpers;
 using HansAfriqueApi.Interface;
 using HansAfriqueApi.Specifications;
 using Microsoft.AspNetCore.Mvc;
@@ -39,13 +40,21 @@ namespace HansAfriqueApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts(string sort, int brandid, int vehicleid, int supplierid, int partCategoryid)
+        [HttpGet]
+        public async Task<ActionResult<Pagination<IReadOnlyList<ProductDto>>>> GetProducts(
+            [FromQuery] ProductSpecParams productParams)
         {
-            var spec = new ProductSpecifications(sort, brandid, vehicleid, supplierid, partCategoryid);
+            var spec = new ProductSpecifications(productParams);
+
+            var countSpec = new ProductFiltersCountSpecification(productParams);
+
+            var totalItems = await _partsRepo.CountAsync(spec);
 
             var products = await _partsRepo.ListAsync(spec);
 
-            return Ok(_mapper.Map<IReadOnlyList<Part>, IReadOnlyList<ProductDto>>(products));
+            var data = _mapper.Map<IReadOnlyList<Part>, IReadOnlyList<ProductDto>>(products);
+
+            return Ok(new Pagination<ProductDto>(productParams.PageIndex, productParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}")]
