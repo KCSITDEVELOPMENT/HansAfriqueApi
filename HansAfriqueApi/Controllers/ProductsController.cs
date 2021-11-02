@@ -48,7 +48,7 @@ namespace HansAfriqueApi.Controllers
 
             var countSpec = new ProductFiltersCountSpecification(productParams);
 
-            var totalItems = await _partsRepo.CountAsync(spec);
+            var totalItems = await _partsRepo.CountAsync(countSpec);
 
             var products = await _partsRepo.ListAsync(spec);
 

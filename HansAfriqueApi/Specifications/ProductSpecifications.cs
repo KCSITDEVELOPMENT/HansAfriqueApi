@@ -26,7 +26,7 @@ namespace HansAfriqueApi.Specifications
             AddInclude(x => x.PartNumber);
             AddInclude(x => x.Photo);
             AddOrderBy(x => x.Name);
-            ApplyPaging(productParams.PageSize * (productParams.PageIndex - 1),
+            ApplyPaging(productParams.PageSize * (productParams.PageIndex -1),
                 productParams.PageSize);
 
             if (!string.IsNullOrEmpty(productParams.Sort))
