@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,15 +41,26 @@ namespace HansAfriqueApi
             services.AddScoped<IUserRepositoryInterface, UserRepository>();
             services.AddScoped<IProductOperationsInterface, ProductOperationsRepository>();
             services.AddScoped<IProduct, ProductsRepository>();
+            services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
             services.AddAutoMapper(typeof(AutomapperProfiles));
 
             services.AddControllers();
 
+
+            //Sql Connection
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
             });
+
+
+            //Redis Connection
+            services.AddSingleton<IConnectionMultiplexer>(c => {
+                     var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"),
+                     true);
+                   return ConnectionMultiplexer.Connect(configuration);
+           });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddCors(c =>
@@ -85,13 +97,13 @@ namespace HansAfriqueApi
             app.UseAuthorization();
 
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapFallbackToController("Index","Fallback");
+           //     endpoints.MapFallbackToController("Index","Fallback");
             });
         }
     }

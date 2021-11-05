@@ -802,3 +802,7 @@ C:\Users\Dev\Downloads\HansAfriq\HansAfriqueApi\HansAfriqueApi\obj\Debug\netcore
 C:\Users\Dev\Downloads\HansAfriq\HansAfriqueApi\HansAfriqueApi\obj\Debug\netcoreapp5.0\scopedcss\bundle\HansAfriqueApi.styles.css
 C:\Users\Dev\Downloads\HansAfriq\HansAfriqueApi\HansAfriqueApi\obj\Debug\netcoreapp5.0\HansAfriqueApi.RazorTargetAssemblyInfo.cache
 C:\Users\Dev\Downloads\HansAfriq\HansAfriqueApi\HansAfriqueApi\obj\Debug\netcoreapp5.0\HansAfriqueApi.genruntimeconfig.cache
+F:\HFR\HansAfriQue\HansAfriqueApi\HansAfriqueApi\bin\Debug\netcoreapp5.0\Pipelines.Sockets.Unofficial.dll
+F:\HFR\HansAfriQue\HansAfriqueApi\HansAfriqueApi\bin\Debug\netcoreapp5.0\StackExchange.Redis.dll
+F:\HFR\HansAfriQue\HansAfriqueApi\HansAfriqueApi\bin\Debug\netcoreapp5.0\System.Diagnostics.PerformanceCounter.dll
+F:\HFR\HansAfriQue\HansAfriqueApi\HansAfriqueApi\bin\Debug\netcoreapp5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll

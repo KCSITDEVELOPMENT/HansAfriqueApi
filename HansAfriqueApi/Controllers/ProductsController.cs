@@ -40,7 +40,6 @@ namespace HansAfriqueApi.Controllers
         }
 
         [HttpGet]
-        [HttpGet]
         public async Task<ActionResult<Pagination<IReadOnlyList<ProductDto>>>> GetProducts(
             [FromQuery] ProductSpecParams productParams)
         {
