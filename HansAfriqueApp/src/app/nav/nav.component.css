@@ -1,58 +1,15 @@
-/******************************
 
-INDEX:
-
-    00 - Base - Typography
-    01 - Base - Variables
-    02 - Base - Mixins
-
-    03 - Utilities - Helper
-    04 - Utilities - Color
-
-    10 - Components - Button
-    11 - Components - Slider
-    12 - Components - Animation
-    13 - Components - Navigation
-    14 - Components - Banner
-    15 - Components - Product
-    16 - Components - Shipping
-    17 - Components - Product Tab
-    18 - Components - Form
-    19 - Components - Social Link
-    20 - Components - Modal
-    21 - Components - Brand
-    22 - Components - Breadcrumb
-
-    25 - Section - Header
-    26 - Section - Footer
-
-    29 - Pages - Shop
-    30 - Pages - Single Product
-    31 - Pages - Blog
-    32 - Pages - My Account
-    33 - Pages - Login | Register
-    34 - Pages - Wishlist
-    35 - Pages - Cart
-    36 - Pages - Checkout
-    37 - Pages - Compare
-    38 - Pages - Contact
-    39 - Pages - About Us
-    40 - Pages - FAQ
-    41 - Pages - 404
-
-******************************/
-/*
-    Primary Color:            #ffc400;
-    Body Text Color:          #999999;
-    Heading Color:            #333333;
-    Border Color:             #e5e5e5;
-    Body Font Family:         'Work Sans', sans-serif;
-
-*/
 @import url("https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700,800,900&amp;display=swap");
 /*----------------------------------------*/
 /*  00 - Base - Typography
 /*----------------------------------------*/
+a {
+  text-decoration: none;
+  color: #3acaff;
+
+ 
+}
+
 body {
   font-family: "Work Sans", sans-serif;
   color: #999999;
@@ -9766,3 +9723,32 @@ button, .global-overlay, .quantity .cart-plus-minus > .qtybutton, .price-filter 
       padding: 2px 0;
     }
   }
+
+  /*--------------------------------------------------------------
+# Social Media
+--------------------------------------------------------------*/
+.social-media{
+  position: relative;
+  right: 5px;
+  width: 200px;
+  top:13px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; 
+}
+
+.fa-facebook{
+  color: white;
+}
+
+.fa-twitter{
+  color: white;
+}
+
+.fa-pinterest{
+  color: white;
+}
+
+.fa-instagram{
+  color: white;
+}

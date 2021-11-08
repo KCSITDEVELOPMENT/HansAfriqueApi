@@ -24,7 +24,7 @@ const routes: Routes = [
 
       {path: 'editproduct/:id', component: EditproductComponent },
       {path: 'productoperations', component: ProductOperationsComponent },
-      {path: 'products', component: ProductsComponent },
+
       {path: 'products/:id', component: ProductsDetailsComponent },
       {path: 'addproduct', component: AddproductComponent },
       {path: 'picturesofproduct/:id', component: PicturesofproductComponent },
@@ -34,6 +34,7 @@ const routes: Routes = [
    },
 
     {path: 'about', component: AboutComponent },
+    {path: 'products', component: ProductsComponent },
     {path: 'register', component: RegisterComponent },
     {path: 'login', component:  LoginComponent },
     {path: '**', component: HomeComponent, pathMatch:'full' },

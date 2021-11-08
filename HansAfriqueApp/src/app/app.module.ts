@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -26,6 +26,11 @@ import { ProductOperationsComponent } from './products/product-operations/produc
 import { PicturesofproductComponent } from './products/picturesofproduct/picturesofproduct.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { SectionHeaderComponent } from './section-header/section-header.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { provideRoutes } from '@angular/router';
+import { LoadingInterceptor } from './interceptor/loading.interceptor';
+import { multicast } from 'rxjs/operators';
 
 @NgModule({
   declarations: [
@@ -44,7 +49,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     AddproductComponent,
     EditproductComponent,
     ProductOperationsComponent,
-    PicturesofproductComponent
+    PicturesofproductComponent,
+    SectionHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -57,12 +63,16 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     BsDropdownModule.forRoot(),
     CarouselModule,
     PaginationModule.forRoot(),
+    NgxSpinnerModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
-    })
+    }),
+   
   ],
   exports: [PaginationModule],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -27,6 +27,19 @@
   </tbody>
 </table>
 
+<div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+  <pagination 
+  [boundaryLinks]="true"
+  [totalItems]="this.totalCount"
+  (pageChanged)="onPageChange($event)"
+  [itemsPerPage]="this.productParams.pageSize"
+  previousText="&lsaquo;"
+  nextText="&rsaquo;"
+  firstText="&laquo;"
+  lastText="&raquo;">
+  </pagination>
+</div>
+
 <br>
 
 </div>

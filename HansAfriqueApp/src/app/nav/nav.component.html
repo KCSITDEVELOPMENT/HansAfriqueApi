@@ -9,14 +9,13 @@
                               <li class="dropdown-holder active">
                                   <a routerLink="/home">Home</a>
                               </li>
-                              <li><a routerLink="/products">Products</a></li> 
-                              <li><a routerLink="/cart">Checkout</a></li>
-                              <li><a routerLink="/productoperations">Product Operations</a></li>
-                              <li><a routerLink="/addproduct">Add Product</a></li>
-                              <li class=""><a href="">About Us</a></li>
-                              <li class=""><a href="">Contact</a></li>
+                              <li><a routerLink="/products" routerLinkActive="active">Products</a></li> 
+                              <li><a routerLink="/cart" routerLinkActive="active">Checkout</a></li>
+                              <li><a routerLink="/productoperations" routerLinkActive="active">Product Operations</a></li>
+                              <li><a routerLink="/addproduct" routerLinkActive="active">Add Product</a></li>
+                              <li class=""><a href="" routerLinkActive="active">About Us</a></li>
+                              <li class=""><a href="" routerLinkActive="active">Contact</a></li>
                               <li><a *ngIf="currentUser$ | async" routerLink="/home"  (click)= "logout()" >Logout</a></li>
-
                           </ul>
                       </nav>
                   </div>
@@ -40,67 +39,8 @@
           </div>
       </div>
   </div>
-  <div class="header-top_area header-sticky bg--sapphire">
-      <div class="container-fluid" style="padding-left:0px;padding-right:0px;">
-          <div class="row">
-              <div class="col-lg-7 d-lg-block d-none text-center" style="padding-left:0px;padding-right:0px;">
-                  <div class="main-menu_area position-relative">
-                      <div class="col-lg-2 d-block">
-                          <div class="header-logo_area header-sticky_logo" style="padding-top: 12.5px;">
-                              <a href="/">
-                                  <img src="../../assets/images/menu/logo/logo-1.png"  alt="Hansafrique Logo">
-                              </a>
-                          </div>
-                      </div>
-                      <nav class="main-nav">
-                          <ul>
-                              <li class="dropdown-holder active">
-                                  <a href="/">Home</a>
-                              </li>
-                              <li><a href="/Home/Products">Products</a></li>
-                              <li class=""><a href="/Home/About">About Us</a></li>
-                              <li class=""><a href="/Home/Contact">Contact</a></li>
-                          </ul>
-                      </nav>
-                      <div class="text-center col-lg-5" style="padding-top:2%;font-size: 20px;color: white;">
-                          <img src="../../../images/Slogan.png" alt="#" style="max-width:100%;">
-                      </div>
-                      
-                  </div>
-              </div>
 
-
-              <div class="col-xl-4 col-lg-5 col-sm-9">
-                  <div class="header-right_area">
-                      <ul>
-                          <li class="mobile-menu_wrap d-flex d-lg-none">
-                              <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn color--white">
-                                  <i class="ion-navicon"></i>
-                              </a>
-                          </li>
-                          <li class="minicart-wrap">
-                              <a href="#miniCart" class="minicart-btn toolbar-btn">
-                                  <div class="minicart-count_area">
-
-                                      <i class="ion-bag"></i>
-                                  </div>
-                                  <div class="minicart-front_text">
-                                      <span>View Cart</span>
-
-                                  </div>
-                              </a>
-                          </li>
-                          <li class="contact-us_wrap">
-                              <a href="tel://+27128041287"><i class="ion-android-call"></i>012 804 1287</a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <div class="header-middle_area">
+<div class="header-middle_area">
       <div class="container-fluid">
           <div class="row">
               <div class="custom-logo_col col-12">
@@ -118,170 +58,13 @@
                               <span>Department</span>
                           </h2>
                       </div>
-                      <div id="cate-toggle" class="category-menu-list" style="display: none;">
-                          <ul>
-                              <li class="right-menu">
-                                  <a href="">COMMERCIAL VEHICLES</a>
-                                  <ul class="cat-mega-menu cat-mega-menu-4" style="">
-                                      <li class="right-menu cat-mega-title">
-                                          <ul style="">
-                                              <li><a href="">Bearings</a></li>
-                                              <li><a href="">Brakes &amp; components</a></li>
-                                              <li><a href="">Chevron</a></li>
-                                              <li><a href="">Cab &amp; Suspension Parts</a></li>
-                                              <li><a href="">Compressor Parts</a></li>
-                                              <li><a href="">Differential Parts</a></li>
-                                              <li><a href="">Clutch Bearing</a></li>
-                                              <li><a href="">Clutch Cylinder</a></li>
-                                              <li><a href="">Clutch Kit</a></li>
-                                              <li><a href="">Clutch Servo</a></li>
-                                          </ul>
-                                      </li>
-                                      <li class="right-menu cat-mega-title">
-                                          <ul style="">
-
-                                              <li><a href="">Clutch Facings</a></li>
-                                              <li><a href="">Electrical Parts</a></li>
-                                              <li><a href="">Engine Parts</a></li>
-                                              <li><a href="">Exhaust Parts</a></li>
-                                              <li><a href="">Flywheel</a></li>
-                                              <li><a href="">Filters</a></li>
-                                              <li><a href="">LED Lights</a></li>
-                                          </ul>
-                                      </li>
-                                      <li class="right-menu cat-mega-title">
-                                          <ul style="">
-
-                                              <li><a href="">Friction Discs</a></li>
-                                              <li><a href="">Mating Plate</a></li>
-                                              <li><a href="">Oil </a></li>
-                                              <li><a href="">Reverse Buzzer</a></li>
-                                              <li><a href="">Transmission Disc</a></li>
-                                              <li><a href="">Valves</a></li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                              </li>
-                          </ul>
-                          <ul>
-                              <li class="right-menu">
-                                  <a href="#">AGRICULTURAL VEHICLES</a>
-                                  <ul class="cat-mega-menu cat-mega-menu-4" style="">
-                                      <li class="right-menu cat-mega-title">
-                                          <ul style="">
-                                              <li><a href="">Batteries</a></li>
-                                              <li><a href="">Bearings</a></li>
-                                              <li><a href="">Body Parts</a></li>
-                                              <li><a href="">Brake Parts</a></li>
-                                              <li><a href="">Componentry</a></li>
-                                              <li><a href="">Clutch Bearing</a></li>
-                                              <li><a href="">Clutch Kit</a></li>
-                                              <li><a href="">Clutch Plate</a></li>
-                                              <li><a href="">Clutch Facings</a></li>
-                                              <li><a href="">Damper</a></li>
-                                              <li><a href="">Exhaust Parts</a></li>
-                                              <li><a href="">Cooling &amp; Air Parts</a></li>
-
-
-                                          </ul>
-                                      </li>
-                                      <li class="right-menu cat-mega-title">
-                                          <ul style="">
-                                              <li><a href="">Electrical Parts</a></li>
-                                              <li><a href="">Engine Parts</a></li>
-                                              <li><a href="">Filters</a></li>
-                                              <li><a href="">Front Axle Parts</a></li>
-                                              <li><a href="">Friction Discs</a></li>
-                                              <li><a href="">Hydraulic Parts</a></li>
-                                              <li><a href="">Mating Plate</a></li>
-                                              <li><a href="">Oil</a></li>
-                                              <li><a href="">Pressure Plate</a></li>
-                                              <li><a href="">Pulley</a></li>
-                                              <li><a href="">Transmission Disc</a></li>
-                                              <li><a href="">Radiators</a></li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                              </li>
-                          </ul>
-                          <ul>
-                              <li class="right-menu">
-                                  <a href="#">PASSENGER VEHICLES</a>
-                                  <ul class="cat-mega-menu cat-mega-menu-4" style="">
-                                      <li class="right-menu cat-mega-title">
-                                          <ul style="">
-                                              <li><a href="">Batteries</a></li>
-                                              <li><a href="">Brake Disc</a></li>
-                                              <li><a href="">Brake Drum</a></li>
-                                              <li><a href="">Brake Lining</a></li>
-                                              <li><a href="">Brake Pad</a></li>
-                                              <li><a href="">Clutch Bearing</a></li>
-                                              <li><a href="">Clutch Cylinder</a></li>
-                                              <li><a href="">Clutch Kit</a></li>
-                                              <li><a href="">Filter </a></li>
-                                              <li><a href="">Flywheel </a></li>
-                                              <li><a href="">Oil</a></li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                              </li>
-                          </ul>
-                          <ul>
-                              <li class="right-menu">
-                                  <a href="">FRICTION/SINTER</a>
-                                  <ul class="cat-mega-menu cat-mega-menu-4" style="">
-                                      <li class="right-menu cat-mega-title">
-                                          <ul style="">
-                                              <li><a href="">Woven Friction Material</a></li>
-                                              <li><a href="">Friction Block</a></li>
-                                              <li><a href="">Friction Flat Sheet</a></li>
-                                              <li><a href="">Buttons</a></li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                              </li>
-
-                          </ul>
-                          <ul>
-                              <li class="right-menu">
-                                  <a href="">MWM ENGINE PARTS</a>
-                                  <ul class="cat-mega-menu cat-mega-menu-4" style="">
-                                      <li class="right-menu cat-mega-title">
-                                          <ul style="">
-                                              <li><a href="">F250 Parts</a></li>
-                                              <li><a href="">VW Bus Parts</a></li>
-                                              <li><a href="">VW Constellation Parts</a></li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                              </li>
-
-                          </ul>
-                      </div>
+          
                   </div>
               </div>
               <div class="custom-search_col col-12">
                   <div class="hm-form_area">
                       <div class="hm-searchbox">
-                          <select class="nice-select select-search-category" id="Part_List" style="display: none;">
-                              <option value="0">All Categories</option>
-                              <option value="CASE">CASE</option>
-                              <option value="Caterpillar">Caterpillar</option>
-                              <option value="DAF">DAF</option>
-                              <option value="David Brown">David Brown</option>
-                              <option value="Isuzu">Isuzu</option>
-                              <option value="John Deere">John Deere</option>
-                              <option value="Landini">Landini</option>
-                              <option value="MAN">MAN</option>
-                              <option value="Massey Ferguson">Massey Ferguson</option>
-                              <option value="Mercedes Benz">Mercedes Benz</option>
-                              <option value="Miba Friction">Miba Friction</option>
-                              <option value="New Holland">New Holland</option>
-                              <option value="Nissan">Nissan</option>
-                              <option value="Scania">Scania</option>
-                              <option value="Toyota">Toyota</option>
-                              <option value="Volvo">Volvo</option>
-                          </select><!--<div class="nice-select select-search-category" tabindex="0"><span class="current">All Categories</span><ul class="list"><li data-value="0" class="option selected">All Categories</li><li data-value="CASE" class="option">CASE</li><li data-value="Caterpillar" class="option">Caterpillar</li><li data-value="DAF" class="option">DAF</li><li data-value="David Brown" class="option">David Brown</li><li data-value="Isuzu" class="option">Isuzu</li><li data-value="John Deere" class="option">John Deere</li><li data-value="Landini" class="option">Landini</li><li data-value="MAN" class="option">MAN</li><li data-value="Massey Ferguson" class="option">Massey Ferguson</li><li data-value="Mercedes Benz" class="option">Mercedes Benz</li><li data-value="Miba Friction" class="option">Miba Friction</li><li data-value="New Holland" class="option">New Holland</li><li data-value="Nissan" class="option">Nissan</li><li data-value="Scania" class="option">Scania</li><li data-value="Toyota" class="option">Toyota</li><li data-value="Volvo" class="option">Volvo</li></ul></div>-->
+        <!--<div class="nice-select select-search-category" tabindex="0"><span class="current">All Categories</span><ul class="list"><li data-value="0" class="option selected">All Categories</li><li data-value="CASE" class="option">CASE</li><li data-value="Caterpillar" class="option">Caterpillar</li><li data-value="DAF" class="option">DAF</li><li data-value="David Brown" class="option">David Brown</li><li data-value="Isuzu" class="option">Isuzu</li><li data-value="John Deere" class="option">John Deere</li><li data-value="Landini" class="option">Landini</li><li data-value="MAN" class="option">MAN</li><li data-value="Massey Ferguson" class="option">Massey Ferguson</li><li data-value="Mercedes Benz" class="option">Mercedes Benz</li><li data-value="Miba Friction" class="option">Miba Friction</li><li data-value="New Holland" class="option">New Holland</li><li data-value="Nissan" class="option">Nissan</li><li data-value="Scania" class="option">Scania</li><li data-value="Toyota" class="option">Toyota</li><li data-value="Volvo" class="option">Volvo</li></ul></div>-->
                           <input type="text" placeholder="Enter your search key ..." id="Search_Key">
                           <button class="header-search_btn" type="button" >
                               <i class="ion-ios-search-strong"><span>Search</span></i>
@@ -303,24 +86,53 @@
                                   <i class="ion-navicon"></i>
                               </a>
                           </li>
+                         
 
-
-
-                          <li class="minicart-wrap">
+                        <li class="minicart-wrap">
                               <a href="#miniCart" class="minicart-btn toolbar-btn">
                                   <div class="minicart-count_area">
-                                      
                                       <i class="ion-bag"></i>
                                   </div>
                                   <div class="minicart-front_text">
                                       <span>View Cart</span>
-                                      
                                   </div>
                               </a>
-                          </li>
+                        </li>
+
                           <li class="contact-us_wrap">
                               <a href="tel://+27128041287"><i class="ion-android-call"></i>012 804 1287</a>
                           </li>
+
+                          <li class="social-media">
+                                <!-- Facebook -->
+                                 <a  href="https://www.facebook.com/hansafriquetrading" role="button">
+                                     <i class="fa fa-facebook"></i>
+                                </a>
+
+                                <!-- Twitter -->
+                                <a  href="https://twitter.com/hansafrique" role="button">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+
+                                <!-- Google -->
+                                <a  href="https://za.pinterest.com/bd4ef42ae6b610fbbe545fac2661a7/_saved/" role="button">
+                                    <i class="fa fa-pinterest"></i>
+                                </a>
+
+                              <!-- Instagram -->
+                              <a  href="https://www.instagram.com/hansafrique/" role="button">
+                                  <i class="fa fa-instagram">
+                                  </i>
+                               
+                                </a>
+
+                                <a  routerLink="/cart" role="button">
+                                    <i class="fa fa-shopping-cart text-light "></i>
+
+                                 
+                                  </a>
+                              
+                          </li>        
                       </ul>
                   </div>
               </div>
@@ -334,112 +146,5 @@
       </div>
   </div>
 
-  <div class="offcanvas-minicart_wrapper" id="miniEnquiry">
-      <div class="offcanvas-menu-inner">
-          <a href="#" class="btn-close"><i class="ion-android-close"></i></a>
-          <div class="minicart-content">
-              <div>
-                  <div class="contact-form-content">
-                      <h3 class="contact-page-title">Product Enquiry</h3>
-                      <div class="contact-form">
-                          <form id="contact-form" action="" method="post">
-                              <div class="form-group">
-                                  <label>Your Name <span class="required">*</span></label>
-                                  <input class="form-control" type="text" name="con_name" id="con_name" style="" required="">
-                              </div>
-                              <div class="form-group">
-                                  <label>Your Email <span class="required"></span></label>
-                                  <input class="form-control" type="email" name="con_email" id="con_email">
-                              </div>
-                              <div class="form-group">
-                                  <label>Phone <span class="required">*</span></label>
-                                  <input class="form-control" type="text" name="con_phone" id="con_phone" required="">
-                              </div>
-                              <div class="form-group">
-                                  <label>Subject <span class="required">*</span></label>
-                                  <input class="form-control" type="text" name="con_subject" id="con_subject">
-                              </div>
-                              <div class="form-group form-group-2">
-                                  <label>Your Message <span class="required">*</span></label>
-                                  <textarea class="form-control" name="con_message" id="con_message"></textarea>
-                              </div>
-                          </form>
-                      </div>
-                      <p class="form-messege"></p>
-                  </div>
-              </div>
-          </div>
-          <div class="minicart-btn_area">
-              <a href="" class="uren-btn uren-btn_fullwidth">Send</a>
-          </div>
-      </div>
-  </div>
-  <div class="offcanvas-minicart_wrapper" id="miniCart">
-      <div class="offcanvas-menu-inner">
-          <a href="#" class="btn-close"><i class="ion-android-close"></i></a>
-          <div class="minicart-content">
-              <div class="minicart-heading">
-                  <h4>Shopping Cart</h4>
-              </div>
-              <ul class="minicart-list" id="myCart" style="max-height:720px;"></ul>
-          </div>
-          
-
-          <div class="minicart-btn_area" style="margin-top:10px;">
-              
-           
-              <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&amp;receiver=17663136&amp;item_name=Buy&amp;amount=100">
-<img src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" alt="Pay" title="Pay Now with PayFast" width="165" height="36"></a>
-          </div>
-      </div>
-  </div>
-  <div class="mobile-menu_wrapper" id="mobileMenu">
-      <div class="offcanvas-menu-inner">
-          <div class="container">
-              <a href="#" class="btn-close"><i class="ion-android-close"></i></a>
-              <div class="offcanvas-inner_search">
-                  <div class="inner-searchbox">
-                      <input type="text" placeholder="Search for item..." id="searchmobile">
-                      <button class="search_btn" type="" onclick="GetSearchResults2();"><i class="ion-ios-search-strong"></i></button>
-                  </div>
-              </div>
-              <nav class="offcanvas-navigation">
-                  <ul class="mobile-menu">
-                      <li class="menu-item-has-children active">
-                          <a href="/">
-                              <span class="mm-text">Home</span>
-                          </a>
-                      </li>
-                      <li class="menu-item-has-children active">
-                          <a href="/Account/Login">
-                              <span class="mm-text">Login</span>
-                          </a>
-                      </li>
-                      <li class="menu-item-has-children active">
-                          <a href="/Home/Products">
-                              <span class="mm-text">Products</span>
-                          </a>
-                      </li>
-                      <li class="menu-item-has-children active">
-                          <a href="/Home/Services">
-                              <span class="mm-text">Auto Services</span>
-                          </a>
-                      </li>
-                      <li class="menu-item-has-children active">
-                          <a href="/Home/Contact">
-                              <span class="mm-text">Contact us</span>
-                          </a>
-                      </li>
-                      <li class="menu-item-has-children active">
-                          <a href="/Home/TermsAndConditions">
-                              <span class="mm-text">Terms Á Conditions</span>
-                          </a>
-                      </li>
-                  </ul>
-              </nav>
-              
-          </div>
-      </div>
-  </div>
 </header>
 

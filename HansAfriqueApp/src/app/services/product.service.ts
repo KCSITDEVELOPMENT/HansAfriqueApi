@@ -36,9 +36,9 @@ export class ProductService {
     if(productParams.brandId !== 0){
       params = params.append('brandId', productParams.brandId.toString())
     }
-
-    if(productParams.vehicleCategoryId !== 0){
-      params = params.append('vehicleCategoryId', productParams.vehicleCategoryId.toString())
+    
+    if(productParams.partCategoryId !== 0){
+      params = params.append('partCategoryId', productParams.partCategoryId.toString())
     }
 
     params = params.append('pageIndex', productParams.pageNumber.toString());
@@ -60,7 +60,7 @@ export class ProductService {
   }
 
   getByPartCategory() {
-    return this.http.get<PartCategory[]>(this.baseUrl + 'products/category');
+    return this.http.get<PartCategory[]>(this.baseUrl + 'products/partCategory');
   }
 
   getByVehicleModels(): Observable<Vehicle[]> {

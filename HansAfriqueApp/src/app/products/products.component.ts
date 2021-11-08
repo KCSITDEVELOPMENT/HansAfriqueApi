@@ -26,7 +26,7 @@ export class ProductsComponent implements OnInit {
   partcategorys : PartCategory [] = [];
   brands : Brand[] = [];
   productParams = new ProductParams();
-  totalCount : number = 0;
+  totalCount : number =0;
 
   constructor(private accountService: AccountService, private productService: ProductService, 
     private http: HttpClient,  
@@ -42,6 +42,7 @@ export class ProductsComponent implements OnInit {
    this.getvehicle_Models();
    this.getvehicle_Suppliers();
    this.getvehicle_Brands();
+   this.getpartscategory();
    
     }
 
@@ -80,7 +81,6 @@ export class ProductsComponent implements OnInit {
     getvehicle_Brands(){
       this.productService.getByBrands().subscribe( response =>{
        this.brands = [{id: 0, name: 'All'}, ...response];
-       console.log(this.brands);
       },error => {
         console.error();
         this.toastrService.error(error.error);
@@ -103,7 +103,7 @@ export class ProductsComponent implements OnInit {
 
     
     onvehicleCategorySelected(vehicleCategoryId: number){
-      this.productParams.vehicleCategoryId = vehicleCategoryId;
+      this.productParams.partCategoryId = vehicleCategoryId;
       this.getProducts();
      }
 

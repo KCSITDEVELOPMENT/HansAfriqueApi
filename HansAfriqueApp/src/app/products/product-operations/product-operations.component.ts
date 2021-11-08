@@ -29,6 +29,7 @@ export class ProductOperationsComponent implements OnInit {
   editForm: any;
   id: number | undefined;
   productParams = new ProductParams();
+  totalCount : number =0;
 
 
 
@@ -101,6 +102,12 @@ onSubmit(formData : FormGroup) {
   this.productoperationService.putProducts(this.id , formData.value).subscribe(res => {
 
   });
+}
+
+
+onPageChange(event: any){
+  this.productParams.pageNumber = event.page;
+  this.getProducts();
 }
 
 }
