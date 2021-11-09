@@ -16,7 +16,7 @@ export class IBasket {
         partCategory: string = "";
         partCode: string = "";
         vehicleModel: string = "";
-        partNumber: string = "";
+        partNumber: number = 0;
     }
 
      
