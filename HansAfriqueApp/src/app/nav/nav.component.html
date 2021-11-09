@@ -128,8 +128,7 @@
 
                                 <a  routerLink="/cart" role="button">
                                     <i class="fa fa-shopping-cart text-light "></i>
-
-                                 
+                                    <div *ngIf="(basket$ | async) as basket" class="cart-no">{{basket.items.length}}</div>
                                   </a>
                               
                           </li>        

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './_models/user';
 import { AccountService } from './services/account.service';
+import { BasketService } from './services/basket.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,20 @@ import { AccountService } from './services/account.service';
 export class AppComponent implements OnInit {
   title = 'HansAfriqueApp';
 
-  constructor(private accountService: AccountService){}
+  constructor(private accountService: AccountService, private basketService: BasketService){}
 
-  ngOnInit() {
+  ngOnInit(): void {
   this.setCurrentUser();
+   const basketId = localStorage.getItem('basket_Id');
+
+   if(basketId)
+   {
+     this.basketService.getBasket(basketId).subscribe(() => {
+      console.log("Innitionalised basket");
+     },error => {
+       console.log(error);
+     })
+    }
   }
 
 

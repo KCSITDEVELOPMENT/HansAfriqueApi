@@ -42,7 +42,7 @@ export class ProductsComponent implements OnInit {
    this.getvehicle_Models();
    this.getvehicle_Suppliers();
    this.getvehicle_Brands();
-   this.getpartscategory();
+
    
     }
 

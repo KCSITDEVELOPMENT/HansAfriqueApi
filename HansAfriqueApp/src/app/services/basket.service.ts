@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { IBasket, IBasketItem } from '../_models/basket';
+import { Basket, IBasket, IBasketItem } from '../_models/basket';
 import { Part } from '../_models/part';
 
 @Injectable({
@@ -23,6 +23,7 @@ export class BasketService {
     .pipe(
       map((basket : IBasket) =>{
          this.basketSource.next(basket);
+         console.log( this.getCurrentBasketValue());
       })
     )
   }
@@ -41,7 +42,32 @@ export class BasketService {
 
   addItemToBasket(item: Part, quantity = 1){
     const ItemToAdd: IBasketItem = this.mapPartItemToBasket(item, quantity);
+    const basket = this.getCurrentBasketValue() ?? this.createBasket();
+    basket.items = this.addOrUpdateItem(basket.items, ItemToAdd, quantity);
+    this.setBasket(basket);
   }
+
+
+  addOrUpdateItem(items: IBasketItem[], ItemToAdd: IBasketItem, quantity: number): IBasketItem[] {
+    const index = items.findIndex(i => i.id === ItemToAdd.id);
+
+    if(index === -1){
+      ItemToAdd.quantity = quantity;
+      items.push(ItemToAdd);
+    }
+    else
+    {
+        items[index].quantity += quantity;
+    }
+    return items;
+  }
+
+  private createBasket() : IBasket {
+    const basket = new Basket();
+    localStorage.setItem('basket_id', basket.id)
+    return basket;
+  }
+
   mapPartItemToBasket(item: Part, quantity: number): IBasketItem {
     return{
       id: item.id,
@@ -51,6 +77,7 @@ export class BasketService {
       supplier: item.supplier,
       price: item.price,
       pictureULR: item.pictureULR,
+      quantity,
       partCategory: item.partCategory,
       partCode: item.partCode,
       vehicleModel: item.VehicleModel,
