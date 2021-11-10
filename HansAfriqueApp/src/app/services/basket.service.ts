@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -19,18 +18,19 @@ export class BasketService {
   constructor( private http: HttpClient) { }
 
   getBasket(id : string){
-    return this.http.get<IBasket>(this.baseUrl + 'basket?id' + id)
+    return this.http.get<IBasket>(this.baseUrl + 'basket?id=' + id)
     .pipe(
       map((basket : IBasket) =>{
          this.basketSource.next(basket);
          console.log( this.getCurrentBasketValue());
       })
-    )
+    );
   }
 
   setBasket( basket: IBasket){
     return this.http.post<IBasket>(this.baseUrl + 'basket', basket).subscribe((response: IBasket) => {
       this.basketSource.next(response);
+      console.log(response);
     }, error =>{
       console.log(error);
     });

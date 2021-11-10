@@ -9752,3 +9752,16 @@ button, .global-overlay, .quantity .cart-plus-minus > .qtybutton, .price-filter 
 .fa-instagram{
   color: white;
 }
+
+.cart-no{
+  position: absolute;
+  min-height: 25px;
+  min-width: 25px;
+  border-radius: 50%;
+  font-size: 1em;
+  background: #cccccc;
+  color: #0c2a5c;
+  text-align: center;
+  top: -12px;
+  right: 32px;
+}

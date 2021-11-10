@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { wallet } from '../_models/wallet';
 import { PayfastService } from '../services/payfast.service';
+import { BasketService } from '../services/basket.service';
+import { IBasket } from '../_models/basket';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -12,23 +15,15 @@ import { PayfastService } from '../services/payfast.service';
 export class CartComponent implements OnInit {
   products : any = {}; 
   walletAmount : wallet;
+  basket$: Observable<IBasket> | undefined;
 
-  constructor(private http: HttpClient, private payfastService : PayfastService,  private router: Router) { 
+  constructor(private http: HttpClient,  private basketService : BasketService,  private router: Router) { 
 
-    this.walletAmount = new wallet()
+    this.walletAmount = new wallet();
   }
 
   ngOnInit(): void {
-
+    this.basket$ = this.basketService.basket$;
   }
 
-
-  send(){
-     
-    
-
-    this.payfastService.getProducts(this.walletAmount).subscribe(() => {
-      this.router.navigateByUrl('/https://sandbox.payfast.co.za​/eng/process' + this.walletAmount);
-    });
-  }
 }
