@@ -27,7 +27,7 @@ export class Basket implements IBasket {
 }
 
 export class IBasketTotals {
-    shipping: number =0;
-    subtotal: number =0;
-    total: number =0;
+    shipping?: number =0;
+    subtotal?: number =0;
+    total?: number =0;
 }

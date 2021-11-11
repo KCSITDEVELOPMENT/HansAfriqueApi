@@ -31,6 +31,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { provideRoutes } from '@angular/router';
 import { LoadingInterceptor } from './interceptor/loading.interceptor';
 import { multicast } from 'rxjs/operators';
+import { OrderTotalsComponent } from './order-totals/order-totals.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { multicast } from 'rxjs/operators';
     EditproductComponent,
     ProductOperationsComponent,
     PicturesofproductComponent,
-    SectionHeaderComponent
+    SectionHeaderComponent,
+    OrderTotalsComponent
   ],
   imports: [
     BrowserModule,
