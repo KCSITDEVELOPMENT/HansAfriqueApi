@@ -13,5 +13,6 @@
         public string PartCode { get; set; }
         public string VehicleModel { get; set; }
         public string PartNumber { get; set; }
+        public int Quantity { get; set; }
     }
 }
