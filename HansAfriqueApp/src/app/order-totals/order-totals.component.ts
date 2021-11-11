@@ -9,7 +9,7 @@ import { IBasketTotals } from '../_models/basket';
   styleUrls: ['./order-totals.component.css']
 })
 export class OrderTotalsComponent implements OnInit {
-  basketTotals$: Observable<IBasketTotals> | undefined;
+  basketTotals$!: Observable<IBasketTotals>;
 
   constructor(private basketService: BasketService) { }
 
