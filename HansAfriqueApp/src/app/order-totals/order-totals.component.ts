@@ -9,12 +9,12 @@ import { IBasketTotals } from '../_models/basket';
   styleUrls: ['./order-totals.component.css']
 })
 export class OrderTotalsComponent implements OnInit {
-  basketTotals$!: Observable<IBasketTotals>;
+  basketTotal$!: Observable<IBasketTotals>;
 
   constructor(private basketService: BasketService) { }
 
   ngOnInit(): void {
-    this.basketTotals$ = this.basketService.basketTotal$;
+    this.basketTotal$ = this.basketService.basketTotal$;
   }
 
 }

@@ -3,19 +3,19 @@
 </div>
 <div class="p-4">
     <p class="font-italic mb-4"> shopping Costs depend on your selection.</p>
-    <ul class="list-unstyled mb-4" *ngIf="(basketTotals$ | async)">
+    <ul class="list-unstyled mb-4" *ngIf="(basketTotal$ | async) as totals">
         <li class="d-flex justify-content-between py-3 border-bottom">
             <strong class="text-muted">Order Subtotal</strong>
-            <strong class="text-muted"> 100 000</strong>
+            <strong class="text-muted">R {{totals.subtotal}}</strong>
         </li>
         <li class="d-flex justify-content-between py-3 border-bottom">
             <strong class="text-muted">Shipping & Handling</strong>
-            <strong class="text-muted">100000 000</strong>
+            <strong class="text-muted">R {{totals.shipping}}</strong>
         </li>
  
         <li class="d-flex justify-content-between py-3 border-bottom">
-            <strong class="text-muted">Shipping</strong>
-            <strong class="text-muted">2000 000</strong>
+            <strong class="text-muted">Total</strong>
+            <strong class="text-muted">R {{totals.total}}</strong>
         </li>
     </ul>
 

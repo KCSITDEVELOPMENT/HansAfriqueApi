@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { wallet } from '../_models/wallet';
 import { PayfastService } from '../services/payfast.service';
 import { BasketService } from '../services/basket.service';
-import { IBasket } from '../_models/basket';
+import { IBasket, IBasketItem } from '../_models/basket';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -26,4 +26,17 @@ export class CartComponent implements OnInit {
     this.basket$ = this.basketService.basket$;
   }
 
+
+  
+  removeBasketItem(item: IBasketItem) {
+    this.basketService.removeItemFromBasket(item);
+  }
+
+  incrementItemQuantity(item: IBasketItem) {
+    this.basketService.incrementItemQuantity(item);
+  }
+
+  decrementItemQuantity(item: IBasketItem) {
+    this.basketService.decrementItemQuantity(item);
+  }
 }
