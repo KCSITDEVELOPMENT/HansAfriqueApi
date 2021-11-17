@@ -66,6 +66,143 @@ namespace HansAfriqueApi.Migrations
                     b.ToTable("Photos");
                 });
 
+            modelBuilder.Entity("HansAfriqueApi.Entities.OrderAggregate.AddressEnt", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("AddressEnt");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.OrderAggregate.DeliveryMethod", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DeliveryTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ShortName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("DeliveryMethods");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.OrderAggregate.Order", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BuyerEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DeliveryMethodid")
+                        .HasColumnType("int");
+
+                    b.Property<DateTimeOffset>("OrderDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<int?>("ShipToAddressid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Subtotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("DeliveryMethodid");
+
+                    b.HasIndex("ShipToAddressid");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.OrderAggregate.OrderItem", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ItemOrderedid")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Orderid")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("ItemOrderedid");
+
+                    b.HasIndex("Orderid");
+
+                    b.ToTable("OrderItems");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.OrderAggregate.ProductItemOrdered", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("PictureUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductItemId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("ProductItemOrdered");
+                });
+
             modelBuilder.Entity("HansAfriqueApi.Entities.Part", b =>
                 {
                     b.Property<int>("id")
@@ -187,6 +324,51 @@ namespace HansAfriqueApi.Migrations
                     b.ToTable("People");
                 });
 
+            modelBuilder.Entity("HansAfriqueApi.Entities.Picture", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("IsMain")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Productid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Productid");
+
+                    b.ToTable("Pictures");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.Product", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Brandid")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Partid")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Brandid");
+
+                    b.HasIndex("Partid");
+
+                    b.ToTable("Product");
+                });
+
             modelBuilder.Entity("HansAfriqueApi.Entities.Supplier", b =>
                 {
                     b.Property<int>("id")
@@ -235,12 +417,40 @@ namespace HansAfriqueApi.Migrations
             modelBuilder.Entity("HansAfriqueApi.Entities.FileData", b =>
                 {
                     b.HasOne("HansAfriqueApi.Entities.Part", "Part")
-                        .WithMany("Photos")
+                        .WithMany("Photo")
                         .HasForeignKey("Partid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Part");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.OrderAggregate.Order", b =>
+                {
+                    b.HasOne("HansAfriqueApi.Entities.OrderAggregate.DeliveryMethod", "DeliveryMethod")
+                        .WithMany()
+                        .HasForeignKey("DeliveryMethodid");
+
+                    b.HasOne("HansAfriqueApi.Entities.OrderAggregate.AddressEnt", "ShipToAddress")
+                        .WithMany()
+                        .HasForeignKey("ShipToAddressid");
+
+                    b.Navigation("DeliveryMethod");
+
+                    b.Navigation("ShipToAddress");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.OrderAggregate.OrderItem", b =>
+                {
+                    b.HasOne("HansAfriqueApi.Entities.OrderAggregate.ProductItemOrdered", "ItemOrdered")
+                        .WithMany()
+                        .HasForeignKey("ItemOrderedid");
+
+                    b.HasOne("HansAfriqueApi.Entities.OrderAggregate.Order", null)
+                        .WithMany("OrderItems")
+                        .HasForeignKey("Orderid");
+
+                    b.Navigation("ItemOrdered");
                 });
 
             modelBuilder.Entity("HansAfriqueApi.Entities.Part", b =>
@@ -286,9 +496,42 @@ namespace HansAfriqueApi.Migrations
                     b.Navigation("Vehicle");
                 });
 
+            modelBuilder.Entity("HansAfriqueApi.Entities.Picture", b =>
+                {
+                    b.HasOne("HansAfriqueApi.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("Productid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.Product", b =>
+                {
+                    b.HasOne("HansAfriqueApi.Entities.Brand", "Brand")
+                        .WithMany()
+                        .HasForeignKey("Brandid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HansAfriqueApi.Entities.Part", "Part")
+                        .WithMany()
+                        .HasForeignKey("Partid");
+
+                    b.Navigation("Brand");
+
+                    b.Navigation("Part");
+                });
+
+            modelBuilder.Entity("HansAfriqueApi.Entities.OrderAggregate.Order", b =>
+                {
+                    b.Navigation("OrderItems");
+                });
+
             modelBuilder.Entity("HansAfriqueApi.Entities.Part", b =>
                 {
-                    b.Navigation("Photos");
+                    b.Navigation("Photo");
                 });
 #pragma warning restore 612, 618
         }

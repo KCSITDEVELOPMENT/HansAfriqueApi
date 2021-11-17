@@ -1,4 +1,5 @@
 ﻿using HansAfriqueApi.Entities;
+using HansAfriqueApi.Entities.OrderAggregate;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,9 @@ namespace HansAfriqueApi.Data
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<PartNumber> PartNumbers { get; set; }
         public DbSet<FileData> Photos { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<DeliveryMethod> DeliveryMethods { get; set; }
     }
     
 }

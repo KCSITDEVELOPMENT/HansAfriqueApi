@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HansAfriqueApi.Dto;
 using HansAfriqueApi.Entities;
+using HansAfriqueApi.Entities.OrderAggregate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,18 @@ namespace HansAfriqueApi.Helpers
                 .ForMember(d => d.Brand, o => o.MapFrom(s => s.Brand.Name));
 
             CreateMap<FileData, FileRecordDto>();
+            CreateMap<Address, AddressDto>().ReverseMap();
+            CreateMap<AddressDto, AddressEnt>().ReverseMap();
+
+            CreateMap<Order, OrderToReturnDto>()
+               .ForMember(d => d.DeliveryMethod, o => o.MapFrom(s => s.DeliveryMethod.ShortName))
+               .ForMember(d => d.ShippingPrice, o => o.MapFrom(s => s.DeliveryMethod.Price));
+
+            CreateMap<OrderItem, OrderItemDto>()
+               .ForMember(d => d.ProductId, o => o.MapFrom(s => s.ItemOrdered.ProductItemId))
+               .ForMember(d => d.ProductName, o => o.MapFrom(s => s.ItemOrdered.ProductName))
+               .ForMember(d => d.PictureUrl, o => o.MapFrom(s => s.ItemOrdered.PictureUrl));
+
 
 
         }

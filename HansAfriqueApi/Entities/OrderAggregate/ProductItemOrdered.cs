@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace HansAfriqueApi.Entities.OrderAggregate
 {
-    public class ProductItemOrdered
+    public class ProductItemOrdered : BaseEntity
     {
         public ProductItemOrdered()
         {

@@ -4,20 +4,26 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HansAfriqueApi.Entities
+namespace HansAfriqueApi.Dto
 {
-    public class Address
+    public class AddressDto
     {
-        public int Id { get; set; }
+        [Required]
         public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Street { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string ZipCode { get; set; }
 
         [Required]
-        public string PersonId { get; set; }
-        public Person Person { get; set; }
+        public string LastName { get; set; }
+
+        [Required]
+        public string Street { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public string State { get; set; }
+
+        [Required]
+        public string Zipcode { get; set; }
     }
 }

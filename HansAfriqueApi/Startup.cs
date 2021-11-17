@@ -42,6 +42,8 @@ namespace HansAfriqueApi
             services.AddScoped<IProductOperationsInterface, ProductOperationsRepository>();
             services.AddScoped<IProduct, ProductsRepository>();
             services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
             services.AddAutoMapper(typeof(AutomapperProfiles));
 
