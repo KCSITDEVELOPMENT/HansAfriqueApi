@@ -2,6 +2,7 @@
 using HansAfriqueApi.Dto;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,6 +20,7 @@ namespace HansAfriqueApi.Entities
         public int Supplierid { get; set; }
         public PartCategory PartCategory { get; set; }
         public int PartCategoryid { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
         public string PartCode { get; set; }
         public int PartNumberid { get; set; }

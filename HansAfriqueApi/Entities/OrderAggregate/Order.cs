@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,14 +27,14 @@ namespace HansAfriqueApi.Entities.OrderAggregate
         public AddressEnt ShipToAddress { get; set; }
         public DeliveryMethod DeliveryMethod { get; set; }
         public IReadOnlyList<OrderItem> OrderItems { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Subtotal { get; set; }
         public OrderStatus Status { get; set; } = OrderStatus.Pending;
-       // public string PaymentIntentId { get; set; }
+        // public string PaymentIntentId { get; set; }
 
         public decimal GetTotal()
         {
             return Subtotal + DeliveryMethod.Price;
         }
-
     }
 }
