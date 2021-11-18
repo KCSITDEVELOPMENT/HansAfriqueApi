@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { wallet } from '../_models/wallet';
-import { PayfastService } from '../services/payfast.service';
 import { BasketService } from '../services/basket.service';
 import { IBasket, IBasketItem } from '../_models/basket';
 import { Observable } from 'rxjs';

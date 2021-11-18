@@ -13,6 +13,7 @@ import { ProductOperationsComponent } from './products/product-operations/produc
 import { AddproductComponent } from './products/addproduct/addproduct.component';
 import { PicturesofproductComponent } from './products/picturesofproduct/picturesofproduct.component';
 import { RegisterComponent } from './register/register.component';
+import { CheckoutTotalsComponent } from './order-totals/checkout-totals/checkout-totals.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
       {path: 'addproduct', component: AddproductComponent },
       {path: 'picturesofproduct/:id', component: PicturesofproductComponent },
       {path: 'cart', component: CartComponent },
+      {path: 'checkout-totals', component: CheckoutTotalsComponent },
 
      ]
    },

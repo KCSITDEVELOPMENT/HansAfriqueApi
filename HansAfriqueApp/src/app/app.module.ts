@@ -30,8 +30,10 @@ import { SectionHeaderComponent } from './section-header/section-header.componen
 import { NgxSpinnerModule } from "ngx-spinner";
 import { provideRoutes } from '@angular/router';
 import { LoadingInterceptor } from './interceptor/loading.interceptor';
-import { multicast } from 'rxjs/operators';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 import { OrderTotalsComponent } from './order-totals/order-totals.component';
+import { CheckoutTotalsComponent } from './order-totals/checkout-totals/checkout-totals.component';
+import { StepperFormComponent } from './order-totals/stepper-form/stepper-form.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { OrderTotalsComponent } from './order-totals/order-totals.component';
     ProductOperationsComponent,
     PicturesofproductComponent,
     SectionHeaderComponent,
-    OrderTotalsComponent
+    OrderTotalsComponent,
+    CheckoutTotalsComponent,
+    StepperFormComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +70,7 @@ import { OrderTotalsComponent } from './order-totals/order-totals.component';
     CarouselModule,
     PaginationModule.forRoot(),
     NgxSpinnerModule,
+    CdkStepperModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     }),
