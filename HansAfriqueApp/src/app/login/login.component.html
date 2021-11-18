@@ -1,19 +1,18 @@
 <br>
 
-<div class="uren-login-register_area">
 
-    <div class="container-fluid">
+    
  
         <div class="row">
 
-           <div class="col-sm-12 col-md-12 col-xs-12 col-lg-6">
+           <div class="col-6">
 
              <div class="login-form">
                 <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
 
                             <h4 class="login-title">Login</h4>
 
-                                  <div class="col-md-6 col-12 mb--20">
+                                  <div class="col-6">
                                        <input type="text" class="form-control" name="username"
                                          [(ngModel)] ="model.username" placeholder="Username">
                                   </div> 
@@ -37,9 +36,76 @@
 
             </div>
 
+
+         <div class="col-6">
+
+               <div class="container-fluid">
+            
+                   <div class="row">
+            
+                      
+            
+                        <div class="login-form">
+                           <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+            
+                              <h4 class="login-title">Register</h4>
+                                        <div class="row"> 
+ 
+                                          <div class="col-6">
+                                             <input type="text" class="form-control" name="First Name"
+                                               [(ngModel)] ="model.username" placeholder="Firstname">
+                                        </div> 
+               
+          
+                                         <div class="col-6">
+                                              <input type="password" class="form-control" name="Last Name"
+                                                 [(ngModel)] ="model.password" placeholder="Lastname">
+                                        </div> 
+
+                                        </div>
+                                            
+            
+                                             <div class="col-md-12">
+                                                <input type="text" class="form-control" name="mobileNumber"
+                                                  [(ngModel)] ="model.username" placeholder="Mobile Number">
+                                           </div> 
+                  
+                                           <div class="col-md-12">
+                                             <input type="password" class="form-control" name="email"
+                                                [(ngModel)] ="model.password" placeholder="Email Address">
+                                           </div> 
+              
+                                           <div class="row"> 
+                                            <div class="col-6">
+                                                 <input type="password" class="form-control" name="password"
+                                                    [(ngModel)] ="model.password" placeholder="Password">
+                                           </div> 
+             
+                                           <div class="col-md-6">
+                                             <input type="password" class="form-control" name="confirmPassword"
+                                                [(ngModel)] ="model.password" placeholder="Confirm Password">
+                                           </div> 
+                                           </div>
+             
+                                     <div class="col-md-12">
+                                         <button class="mr-2 uren-login_btn" type="submit">Register</button>
+                                         <!--<button class="btn btn-default mr-2" routerLink="/register" type="button">Go To Register</button> --> 
+             
+                                     </div>
+            
+                           </form>
+                           
+                        </div> 
+            
+                       </div>
+            
+                    </div>
+            
+               </div>
+             
+
          </div>
 
-    </div>
 
-  </div>  
+
   
