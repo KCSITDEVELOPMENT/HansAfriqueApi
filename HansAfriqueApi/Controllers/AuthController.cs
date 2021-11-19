@@ -61,7 +61,7 @@ namespace HansAfriqueApi.Controllers
         [HttpPost("login")]
         public async Task<ActionResult> Login(UserLoginDto userLoginDto)
         {
-            var userFromRepo = await _repo.Login(userLoginDto.Username.ToLower(), userLoginDto.Password);
+            var userFromRepo = await _repo.Login(userLoginDto.UsernameLog.ToLower(), userLoginDto.PasswordLog);
             if (userFromRepo == null)
                 return Unauthorized();
 

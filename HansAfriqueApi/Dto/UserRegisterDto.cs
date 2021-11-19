@@ -14,6 +14,14 @@ namespace HansAfriqueApi.Dto
 
         [Required]
         public string Password { get; set; }
-        }
-    
+
+        [Required]
+        public string Lastname { get; set; }
+
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public string Mobilenumber { get; set; }
+    }
 }
