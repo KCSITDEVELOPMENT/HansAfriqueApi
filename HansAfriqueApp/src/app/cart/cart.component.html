@@ -1,7 +1,5 @@
 <div class="container mt-5">
      <br>
-     <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&amp;receiver=17663136&amp;item_name=Buy&amp;amount={{walletAmount.amount}}">
-             <img src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" width="165" height="36" alt="Pay" title="Pay Now with PayFast" /></a>
      
         <div *ngIf="(basket$ | async) === null" >
            <p>No Items in the Basket Yet.</p>
@@ -65,7 +63,7 @@
                                                                  <i (click)="incrementItemQuantity(item)" class="fa fa-plus-circle text-warning mx-2" style="cursor: pointer; font-size: 2em;"></i>
                                                               </div>
                                                          </td>
-                                                            <td class="align-middle"><strong>{{item.price * item.quantity | currency}}</strong></td>
+                                                            <td class="align-middle"><strong>R {{item.price * item.quantity}}</strong></td>
                                                             <td class="align-middle text-center">
                                                                 <a class="text-danger">
                                                                      <i (click)="removeBasketItem(item)" class="fa fa-trash" style="font-size: 2em; cursor: pointer;"></i>

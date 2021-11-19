@@ -14,13 +14,13 @@
 
                                   <div class="col-6">
                                        <input type="text" class="form-control" name="username"
-                                         [(ngModel)] ="model.username" placeholder="Username">
+                                         [(ngModel)] ="model.usernameLog" placeholder="Username">
                                   </div> 
          
     
                                    <div class="col-md-6 col-12 mb--20">
                                         <input type="password" class="form-control" name="password"
-                                           [(ngModel)] ="model.password" placeholder="Password">
+                                           [(ngModel)] ="model.passwordLog" placeholder="Password">
                                   </div> 
   
   
@@ -42,24 +42,22 @@
                <div class="container-fluid">
             
                    <div class="row">
-            
-                      
-            
+
                         <div class="login-form">
-                           <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+                           <form #loginForm="ngForm" (ngSubmit)="register()" autocomplete="off">
             
                               <h4 class="login-title">Register</h4>
                                         <div class="row"> 
  
-                                          <div class="col-6">
-                                             <input type="text" class="form-control" name="First Name"
-                                               [(ngModel)] ="model.username" placeholder="Firstname">
+                                          <div class="col-md-12">
+                                             <input type="text" name="First Name"
+                                               [(ngModel)] ="model.username" placeholder="Firstname" required>
                                         </div> 
                
           
-                                         <div class="col-6">
-                                              <input type="password" class="form-control" name="Last Name"
-                                                 [(ngModel)] ="model.password" placeholder="Lastname">
+                                         <div class="col-md-12">
+                                              <input type="text" class="form-control" name="Last Name"
+                                                 [(ngModel)] ="model.lastname" placeholder="Lastname" required>
                                         </div> 
 
                                         </div>
@@ -67,23 +65,23 @@
             
                                              <div class="col-md-12">
                                                 <input type="text" class="form-control" name="mobileNumber"
-                                                  [(ngModel)] ="model.username" placeholder="Mobile Number">
+                                                  [(ngModel)] ="model.mobilenumber" placeholder="Mobile Number" required>
                                            </div> 
                   
                                            <div class="col-md-12">
-                                             <input type="password" class="form-control" name="email"
-                                                [(ngModel)] ="model.password" placeholder="Email Address">
+                                             <input type="text" class="form-control" name="email"
+                                                [(ngModel)] ="model.email" placeholder="Email Address" required>
                                            </div> 
               
                                            <div class="row"> 
                                             <div class="col-6">
                                                  <input type="password" class="form-control" name="password"
-                                                    [(ngModel)] ="model.password" placeholder="Password">
+                                                    [(ngModel)] ="model.password" placeholder="Password" required>
                                            </div> 
              
                                            <div class="col-md-6">
                                              <input type="password" class="form-control" name="confirmPassword"
-                                                [(ngModel)] ="model.password" placeholder="Confirm Password">
+                                                 placeholder="Confirm Password" required>
                                            </div> 
                                            </div>
              

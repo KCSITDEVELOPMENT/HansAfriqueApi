@@ -11,7 +11,8 @@ import { Part } from '../_models/part';
 })
 export class BasketService {
   baseUrl = environment.apiUrl;
-  private basketSource = new BehaviorSubject<IBasket>((null) as  any);
+  Ibasket? = [] as IBasket[];
+  private basketSource = new BehaviorSubject<IBasket> ((null) as any);
   basket$ = this.basketSource.asObservable();
   private basketTotalSource = new BehaviorSubject<IBasketTotals>((null) as any);
   basketTotal$ = this.basketTotalSource.asObservable();

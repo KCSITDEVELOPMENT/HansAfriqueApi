@@ -41,9 +41,7 @@ export class ProductsComponent implements OnInit {
    this.getProducts();
    this.getvehicle_Models();
    this.getvehicle_Suppliers();
-   this.getvehicle_Brands();
-
-   
+   this.getvehicle_Brands();   
     }
 
     getProducts(){

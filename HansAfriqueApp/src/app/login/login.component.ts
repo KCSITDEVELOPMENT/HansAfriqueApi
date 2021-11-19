@@ -19,12 +19,24 @@ export class LoginComponent implements OnInit {
   login(){
    this.accountService.login(this.model).subscribe(response => {
      this.router.navigateByUrl('/products')
+     this.toastrService.success("Logged in Successfully");
     console.log(response);
    }, error => {
      console.log(error);
      this.toastrService.error(error.error);
      })
    }
+
+   register(){
+    this.accountService.register(this.model).subscribe(response => {
+      this.router.navigateByUrl('/cart')
+      this.toastrService.success("Logged in Successfully");
+      console.log(response);
+     }, error => {
+       console.log(error);
+       this.toastrService.error(error.error);
+       })
+     }
 
   cancel() {}
 }

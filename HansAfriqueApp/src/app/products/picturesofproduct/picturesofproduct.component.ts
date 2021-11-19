@@ -44,13 +44,11 @@ export class PicturesofproductComponent implements OnInit {
   saveFileInfo()
   {
     this.router.navigateByUrl('/productoperations')
-    debugger
+
     this.id = this.id;
 
     const formData: FormData = new FormData();
     formData.append('myFile', this.fileToUpload);
-    formData.append('altText', this.fileForm.value.altText);
-    formData.append('description', this.fileForm.value.description);
     return this.http.post(this.baseUrl + 'Photos/' + this.id, formData,
     {
       headers : new HttpHeaders()})
